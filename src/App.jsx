@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 
 /* ─── Data imports ────────────────────────────────────────────────── */
-import { LOADING_STEPS_DE, LOADING_STEPS_RU, API_KEY } from './data/constants.js';
+import { LOADING_STEPS_DE, LOADING_STEPS_RU } from './data/constants.js';
 import { translations } from './data/translations.js';
 import { contentRU } from './data/content/contentRU.jsx';
 import { contentDE } from './data/content/contentDE.jsx';
@@ -151,7 +151,12 @@ export default function App() {
       Верни СТРОГО JSON массив объектов без маркдауна. Структура:
       [{"q":"Текст вопроса","options":["A","B","C","D"],"correct":0,"exp":"Краткое объяснение","topic":"Тема (например, Praktiken)"}]`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error('API Key is missing. Please add VITE_GEMINI_API_KEY to your .env file.');
+      }
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

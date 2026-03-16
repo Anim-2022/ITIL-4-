@@ -17,4 +17,3 @@ export const LOADING_STEPS_RU = [
 
 export const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
-export const API_KEY = "AIzaSyAcpztqB_rGXN0K_5VXUIjHKJZFWT4WHK4";
