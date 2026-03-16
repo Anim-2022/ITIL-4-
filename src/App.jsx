@@ -151,7 +151,7 @@ export default function App() {
       Верни СТРОГО JSON массив объектов без маркдауна. Структура:
       [{"q":"Текст вопроса","options":["A","B","C","D"],"correct":0,"exp":"Краткое объяснение","topic":"Тема (например, Praktiken)"}]`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -177,9 +177,22 @@ export default function App() {
       });
 
       clearInterval(stepInterval);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      if (!response.ok) {
+        const errData = await response.json();
+        console.error('Gemini API Error:', errData);
+        throw new Error(`HTTP ${response.status}: ${errData?.error?.message || 'Unknown API Error'}`);
+      }
       const data = await response.json();
-      const generated = JSON.parse(data.candidates[0].content.parts[0].text);
+      
+      let generatedText = data.candidates[0].content.parts[0].text;
+      // Иногда модель может обернуть JSON в маркдаун-блоки ```json ... ```
+      if (generatedText.startsWith('```json')) {
+        generatedText = generatedText.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+      } else if (generatedText.startsWith('```')) {
+        generatedText = generatedText.replace(/^```\s*/, '').replace(/\s*```$/, '');
+      }
+
+      const generated = JSON.parse(generatedText);
       
       if (generated && generated.length > 0) {
         setAiQuestions(generated); 
@@ -187,9 +200,16 @@ export default function App() {
       } else throw new Error('Empty response');
     } catch (err) {
       clearInterval(stepInterval);
-      setAiError(lang === 'de' ? `Generierung fehlgeschlagen. Bitte erneut versuchen.` : `Не удалось сгенерировать тест. Попробуйте снова.`);
+      console.error("AI Generation Error:", err);
+      // Если это ошибка парсинга JSON, выведем специфичный текст
+      if (err instanceof SyntaxError) {
+         setAiError(lang === 'de' ? `Fehler beim Verarbeiten der AI-Antwort. Bitte erneut versuchen.` : `Ошибка обработки ответа ИИ. Попробуйте снова.`);
+      } else {
+         setAiError(lang === 'de' ? `Generierung fehlgeschlagen (${err.message}). Bitte erneut versuchen.` : `Не удалось сгенерировать тест (${err.message}). Попробуйте снова.`);
+      }
     } finally { 
       setIsGenerating(false); 
+
     }
   };
 
