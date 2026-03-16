@@ -1,0 +1,426 @@
+import {
+  BookOpen, Layers, Target, Settings, Shield, HelpCircle, Award,
+  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity
+} from 'lucide-react';
+import Term from '../../components/Term.jsx';
+import AlignmentDiagram from '../../components/diagrams/AlignmentDiagram.jsx';
+import SVSDiagram from '../../components/diagrams/SVSDiagram.jsx';
+import CIModelDiagram from '../../components/diagrams/CIModelDiagram.jsx';
+
+/* ─── Russian Content Data ────────────────────────────────────────── */
+export const contentRU = {
+  examTips: {
+    title: "Анализ Экзамена & Советы",
+    icon: <Award className="w-6 h-6 lg:w-8 lg:h-8" />,
+    content: (
+      <div className="space-y-8">
+        <div className="bg-blue-900/20 p-6 lg:p-8 rounded-2xl border border-blue-800/50">
+          <h3 className="font-bold text-blue-300 text-xl lg:text-2xl mb-4">Формат экзамена Peoplecert (на немецком)</h3>
+          <ul className="list-disc pl-6 text-blue-100/90 space-y-3 text-base md:text-lg">
+            <li><strong>Количество вопросов:</strong> 40 (Multiple Choice).</li>
+            <li><strong>Проходной балл:</strong> 26 из 40 (65%).</li>
+            <li><strong>Время:</strong> 60 минут. Если немецкий не родной — запроси +15 мин при регистрации (итого 75)!</li>
+            <li><strong>Специфика:</strong> Экзамен двуязычный. Основные концепции переводятся (Wert, Leitlinien), названия практик — чаще на английском. <strong>Важно знать оба варианта!</strong></li>
+          </ul>
+        </div>
+        <h3 className="font-bold text-slate-100 text-2xl mt-10">Типы вопросов:</h3>
+        <div className="grid gap-6 w-full md:grid-cols-3">
+          {[
+            { t: '1. Стандартные', d: 'Один правильный ответ из четырех. Ищите ключевые слова-маркеры.' },
+            { t: '2. Fehlendes Wort', d: 'В официальном определении пропущено слово. Нужно точное знание терминологии.' },
+            { t: '3. Listenfragen', d: 'Список из 4 утверждений, выбрать 2 правильных. Найдите 1 точно неверное и вычеркните.' },
+          ].map((c, i) => (
+            <div key={i} className="bg-slate-800/60 p-6 rounded-2xl border border-slate-700">
+              <h4 className="font-bold text-slate-100 text-lg mb-2">{c.t}</h4>
+              <p className="text-base text-slate-400">{c.d}</p>
+            </div>
+          ))}
+        </div>
+        <h3 className="font-bold text-slate-100 text-2xl mt-10">Маркеры ключевых слов:</h3>
+        <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+          <ul className="space-y-4 text-base text-slate-300">
+            <li className="flex items-start"><span className="text-indigo-400 mr-3">🔹</span><span>Видите <Term>Grundursache / Root Cause</Term> ➡️ <strong>Problem Management</strong></span></li>
+            <li className="flex items-start"><span className="text-indigo-400 mr-3">🔹</span><span>Видите <Term>Wiederherstellung des normalen Servicebetriebs</Term> ➡️ <strong>Incident Management</strong></span></li>
+            <li className="flex items-start"><span className="text-indigo-400 mr-3">🔹</span><span>Видите <Term>Gemeinsame Wertschöpfung / Co-creation</Term> ➡️ <strong>Wert / Value</strong></span></li>
+            <li className="flex items-start"><span className="text-indigo-400 mr-3">🔹</span><span>Видите <Term>Vorab autorisiert, geringes Risiko</Term> ➡️ <strong>Standard-Change</strong></span></li>
+            <li className="flex items-start"><span className="text-indigo-400 mr-3">🔹</span><span>Видите <Term>Einziger Kontaktpunkt / Single point of contact</Term> ➡️ <strong>Service Desk</strong></span></li>
+          </ul>
+        </div>
+      </div>
+    )
+  },
+  studyModules: [
+    {
+      id: 'concepts',
+      title: '1. Ключевые понятия',
+      icon: <BookOpen className="w-6 h-6" />,
+      content: (
+        <div className="space-y-8">
+          <p className="text-slate-300 text-lg lg:text-xl font-medium leading-relaxed">Фундамент ITIL 4 строится на том, что ИТ-отдел — это не просто статья расходов на серверы, а полноправный бизнес-партнер.</p>
+          <div className="mt-8 mb-6"><AlignmentDiagram lang="ru" /></div>
+          
+          <h3 className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Роли потребителей <Term>Servicekonsumenten</Term></h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+              <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
+              <p className="text-slate-300 text-sm">Спонсор авторизует бюджет на ИТ-услуги. Он платит за сервис.</p>
+            </div>
+            <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+              <div className="flex items-center gap-3 mb-3 text-indigo-300"><Users className="w-6 h-6" /> <span className="font-bold text-lg">Kunde (Клиент)</span></div>
+              <p className="text-slate-300 text-sm">Клиент определяет требования к сервису и несет ответственность за результаты его потребления (Outcome).</p>
+            </div>
+            <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+              <div className="flex items-center gap-3 mb-3 text-indigo-300"><Headset className="w-6 h-6" /> <span className="font-bold text-lg">Anwender (Пользователь)</span></div>
+              <p className="text-slate-300 text-sm">Пользователь (User) использует ИТ-услуги на ежедневной основе в операционной деятельности.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-indigo-400 mb-4">Ко-креация Ценности <Term>Wert / Value</Term></h3>
+              <div className="bg-indigo-900/30 border border-indigo-700/50 p-4 rounded-xl text-slate-300 text-base leading-relaxed">
+                <strong className="text-indigo-300">💡 В чем суть (Ко-креация):</strong> В старом ITIL ИТ "доставляло" ценность (как курьер пиццу). В ITIL 4 ценность <strong>создается совместно</strong> <Term>Co-creation</Term>. Провайдер дает ресурс (CRM), но ценность возникает <em>только когда</em> клиент им пользуется.
+              </div>
+            </div>
+            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-indigo-400 mb-4">Предложение Услуги <Term>Service Offering</Term></h3>
+              <ul className="space-y-2 text-base text-slate-300">
+                <li><strong>1. Товары (Goods):</strong> передача права собственности (смартфон сотруднику).</li>
+                <li><strong>2. Доступ к ресурсам:</strong> право собственности не передаётся (Wi-Fi, облако).</li>
+                <li><strong>3. Действия сервиса (Actions):</strong> выполнение задачи (сброс пароля).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
+            <h3 className="text-xl font-bold text-indigo-400 mb-4">Сервисные отношения <Term>Servicebeziehungen</Term></h3>
+            <p className="text-slate-300 text-base mb-4">Отношения между провайдером и потребителем состоят из 3 компонентов:</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
+                <strong className="text-slate-200 block mb-2">1. Bereitstellung (Provision)</strong>
+                <span className="text-slate-400 text-sm">Действия провайдера по предоставлению сервиса (управление ресурсами, поддержка).</span>
+              </div>
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
+                <strong className="text-slate-200 block mb-2">2. Konsum (Consumption)</strong>
+                <span className="text-slate-400 text-sm">Действия клиента по потреблению сервиса (использование ресурсов).</span>
+              </div>
+              <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
+                <strong className="text-slate-200 block mb-2">3. Beziehungsmanagement</strong>
+                <span className="text-slate-400 text-sm">Совместные действия (Co-creation) для обеспечения постоянной ценности.</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <h3 className="text-xl font-bold text-indigo-400 mb-6">Результаты, Затраты, Риски</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[
+                { t: 'Ergebnis / Outcome', d: 'Результат для бизнеса. Output — установленный мессенджер; Outcome — ускорение коммуникации на 30%.' },
+                { t: 'Kosten / Cost', d: 'Сервис снимает одни затраты (не нужны свои серверы) и добавляет новые (подписка).' },
+                { t: 'Risiko / Risk', d: 'Сервис снижает одни риски (бэкапы за клиента) и вносит новые (риск банкротства провайдера).' },
+              ].map((c, i) => (
+                <div key={i} className="bg-slate-900/60 p-5 rounded-xl border border-slate-700/50">
+                  <span className="font-bold text-slate-100 block mb-2"><Term>{c.t}</Term></span>
+                  <span className="text-slate-300 text-sm">{c.d}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-linear-to-r from-indigo-900/40 to-slate-800/80 border-l-4 border-indigo-500 p-6 rounded-r-2xl">
+            <strong className="text-xl text-indigo-300 block mb-4">Utility & Warranty:</strong>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
+                <p className="font-bold text-indigo-200 mb-2"><Term>Zweckmäßigkeit / Utility</Term> — fit for purpose</p>
+                <p className="text-slate-400 text-sm">ЧТО сервис делает? Повышает производительность или снимает ограничения (VPN → работа из дома).</p>
+              </div>
+              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
+                <p className="font-bold text-indigo-200 mb-2"><Term>Einsatzfähigkeit / Warranty</Term> — fit for use</p>
+                <p className="text-slate-400 text-sm">КАК сервис работает? Доступность, Ёмкость, Безопасность, Непрерывность. Нужны ОБА!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'principles',
+      title: '2. 7 Принципов ITIL',
+      icon: <Target className="w-6 h-6" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-slate-300 text-lg"><Term>Leitlinien / Guiding Principles</Term> — универсальный компас для сложных ситуаций.</p>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+            {[
+              { t: "Wertorientierung", eng: "Focus on value", d: "Каждый шаг должен иметь ответ: «Как это поможет бизнесу или клиенту?»", tip: "Сначала определите КТО потребитель и ЧТО для него означает «ценность»." },
+              { t: "Dort beginnen, wo man steht", eng: "Start where you are", d: "Запрещено «снести всё старое и построить с нуля». Сначала объективно оцените baseline.", tip: "Всегда найдутся существующие процессы или навыки для переиспользования." },
+              { t: "Iterative Weiterentwicklung mit Feedback", eng: "Progress iteratively with feedback", d: "Разбивайте работу на мелкие итерации (Agile). Waterfal-проекты часто проваливаются.", tip: "Обратная связь гарантирует актуальность решения для бизнеса." },
+              { t: "Zusammenarbeiten und Transparenz fördern", eng: "Collaborate and promote visibility", d: "Изолированная работа (Silos) — главный враг эффективности. Команды должны работать вместе.", tip: "Визуализируйте работу (Канбан). Скрытую работу невозможно приоритизировать." },
+              { t: "Ganzheitlich denken und arbeiten", eng: "Think and work holistically", d: "Изменение в одной части системы неизбежно затрагивает другие.", tip: "Всегда учитывайте все 4 измерения. Нельзя обновить технологию, забыв обучить людей." },
+              { t: "Auf Einfachheit und Praktikabilität achten", eng: "Keep it simple and practical", d: "Сложные бюрократические процессы убивают инновации. Избавьтесь от лишнего.", tip: "Используйте минимальное количество шагов для достижения Outcome." },
+              { t: "Optimieren und automatisieren", eng: "Optimize and automate", d: "Человеческий интеллект — для творчества, рутина — для машин.", tip: "Автоматизировать можно только оптимизированный процесс. Иначе — «автоматизированный бардак»." },
+            ].map((p, i) => (
+              <div key={i} className={`flex p-6 bg-slate-800/60 border border-slate-700 rounded-2xl ${i === 6 ? 'xl:col-span-2 xl:max-w-3xl xl:mx-auto' : ''}`}>
+                <div className="bg-indigo-900/50 text-indigo-400 font-black text-xl w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-indigo-700/50 mr-5">{i + 1}</div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-slate-100 text-lg mb-1">{p.t}</h4>
+                  <div className="mb-2"><Term>{p.eng}</Term></div>
+                  <p className="text-sm text-slate-300 mb-3">{p.d}</p>
+                  <div className="bg-slate-900/80 p-3 rounded-lg border border-slate-700/50 text-xs text-indigo-200"><strong className="text-indigo-400">💡 Экзамен:</strong> {p.tip}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'dimensions',
+      title: '3. 4 Измерения',
+      icon: <Layers className="w-6 h-6" />,
+      content: (
+        <div className="space-y-8">
+          <p className="text-slate-300 text-lg">Для стабильной работы услуги менеджер должен сбалансированно развивать 4 измерения <Term>Vier Dimensionen</Term>.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {[
+              { color: 'border-green-500', t: '1. Organisationen und Menschen', en: 'Organizations and People', q: 'КТО делает работу?', pts: ['Понятные роли и ответственность', 'Общие ценности, доверие, прозрачность', 'Компетенции и обучение'] },
+              { color: 'border-blue-500', t: '2. Informationen und Technologie', en: 'Information and Technology', q: 'С ПОМОЩЬЮ ЧЕГО?', pts: ['Системы управления инцидентами, базы знаний', 'Информационная безопасность (GDPR)', 'Совместимость систем'] },
+              { color: 'border-purple-500', t: '3. Partner und Lieferanten', en: 'Partners and Suppliers', q: 'КТО ПОМОГАЕТ извне?', pts: ['Контракты с провайдерами интернета, облачными сервисами', 'Стратегия: "из коробки" vs совместная разработка'] },
+              { color: 'border-orange-500', t: '4. Wertströme und Prozesse', en: 'Value Streams and Processes', q: 'КАК всё объединяется?', pts: ['Поток ценности: путь от запроса до результата', 'Процессы: входы → выходы, устранение Bottlenecks'] },
+            ].map((d, i) => (
+              <div key={i} className={`border-t-4 ${d.color} bg-slate-800/60 p-6 rounded-2xl`}>
+                <h4 className="font-bold text-lg text-slate-100 mb-1">{d.t}</h4>
+                <div className="mb-3"><Term>{d.en}</Term></div>
+                <p className="text-base font-bold text-slate-200 mb-3">{d.q}</p>
+                <ul className="space-y-1.5 text-slate-400 text-sm list-disc pl-5">{d.pts.map((p, j) => <li key={j}>{p}</li>)}</ul>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-start bg-slate-900/80 p-6 rounded-2xl border border-slate-700">
+            <Info className="w-6 h-6 mr-4 shrink-0 text-indigo-400 mt-1" />
+            <div><strong className="block text-slate-100 mb-1">Внешние факторы (PESTLE)</strong><p className="text-slate-400 text-sm">На все 4 измерения давят внешние факторы: <Term>Political</Term>, <Term>Economic</Term>, <Term>Social</Term>, <Term>Technological</Term>, <Term>Legal</Term>, <Term>Environmental</Term>.</p></div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'svs_svc',
+      title: '4. Система и Цепочка (SVS/SVC)',
+      icon: <Settings className="w-6 h-6" />,
+      content: (
+        <div className="space-y-8">
+          <div className="bg-slate-800/60 p-6 rounded-2xl border border-slate-700">
+            <h3 className="font-bold text-2xl text-slate-100 mb-4">Система создания ценности (SVS)</h3>
+            <p className="text-slate-300 mb-4"><Term>Service-Wertschöpfungssystem</Term> — экосистема всей компании. Вход: <Term>Chance / Opportunity</Term> + <Term>Nachfrage / Demand</Term>. Выход: <Term>Wert / Value</Term>.</p>
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+              {['Leitlinien\n7 Принципов', 'Governance\nУправление', 'SVC\nЯдро системы', 'Praktiken\n34 Практики', 'Continual\nImprovement'].map((c, i) => (
+                <div key={i} className={`p-4 rounded-xl border text-center ${i === 2 ? 'bg-indigo-900/60 border-indigo-500 col-span-2 lg:col-span-1' : 'bg-slate-900 border-slate-700'}`}>
+                  {c.split('\n').map((l, j) => <div key={j} className={j === 0 ? 'font-bold text-indigo-300 text-sm' : 'text-slate-500 text-xs mt-1'}>{l}</div>)}
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 hidden lg:block"><SVSDiagram lang="ru" /></div>
+          </div>
+          <div className="bg-linear-to-br from-indigo-950 to-slate-900 p-6 rounded-2xl border border-indigo-800/50">
+            <h3 className="font-bold text-2xl text-indigo-300 mb-4">Цепочка создания ценности (SVC)</h3>
+            <div className="bg-indigo-900/40 border-l-4 border-fuchsia-500 p-4 rounded-r-xl mb-6 text-indigo-100 text-sm">
+              <strong>⚠️ Архиважно:</strong> SVC нелинейна! Нет жёсткого порядка 1→2→3. Практики не привязаны к одному шагу.
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                ['Planen / Plan', 'Общее понимание видения и стратегии по всем 4 измерениям.'],
+                ['Verbessern / Improve', 'Постоянное улучшение продуктов, услуг и практик.'],
+                ['Engagement / Engage', 'Взаимодействие со стейкхолдерами, построение отношений.'],
+                ['Design & Transition', 'Гарантия качества, стоимости и Time-to-market новых сервисов.'],
+                ['Erhalten/Erstellen / Obtain/Build', 'Разработка (Build) или покупка (Obtain) компонентов.'],
+                ['Bereitstellen & Unterstützen / Deliver & Support', 'Доставка и ежедневная поддержка сервиса.'],
+              ].map(([n, d], i) => (
+                <div key={i} className="bg-slate-900/80 p-4 rounded-xl border border-indigo-900/50">
+                  <span className="font-bold text-indigo-300 text-sm block mb-1">{n}</span>
+                  <p className="text-slate-400 text-xs">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'practices',
+      title: '5. Второстепенные Практики',
+      icon: <Shield className="w-6 h-6" />,
+      content: (
+        <div className="space-y-6">
+          <p className="text-slate-300 text-lg">Эти 19 практик не требуют глубокого изучения для Foundation. Нужно лишь понимать <strong>общую концепцию</strong> (Zweck) на уровне одного предложения.</p>
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { t: 'Architecture Management', d: 'Служит для понимания элементов компании и их связей.' },
+              { t: 'Business Analysis', d: 'Анализ бизнеса/процессов для рекомендации решений.' },
+              { t: 'Capacity & Performance Mgmt', d: 'Обеспечение требуемой ёмкости и производительности услуг.' },
+              { t: 'Organizational Change Mgmt', d: 'Управление человеческой стороной изменений (сопротивлением).' },
+              { t: 'Portfolio Management', d: 'Инвестиции: обеспечение набора программ/услуг для бизнес-целей.' },
+              { t: 'Project Management', d: 'Гарантия успешного завершения проектов.' },
+              { t: 'Risk Management', d: 'Понимание и обработка рисков (Opportunities / Threats).' },
+              { t: 'Service Financial Mgmt', d: 'Финансы: планирование, учет, выставление счетов.' },
+              { t: 'Strategy Management', d: 'Формулирование целей компании и планов их достижения.' },
+              { t: 'Workforce & Talent Mgmt', d: 'Управление кадрами (навыки профили, роли).' },
+              { t: 'Availability Management', d: 'Обеспечение доступности услуг согласно требованиям.' },
+              { t: 'Service Catalogue Mgmt', d: 'Единый источник информации обо всех предоставляемых услугах.' },
+              { t: 'Service Continuity Mgmt', d: 'Обеспечение доступности при катастрофах (Disaster Recovery).' },
+              { t: 'Service Design', d: 'Проектирование услуг под бизнес-цели.' },
+              { t: 'Service Validation & Testing', d: 'Подтверждение, что новые услуги соответствуют требованиям.' },
+              { t: 'Knowledge Management', d: 'Управление знаниями, поддержание их актуальности.' },
+              { t: 'Measurement & Reporting', d: 'Сбор данных, создание отчетов (Dashboards).' },
+              { t: 'Software Development & Mgmt', d: 'Разработка и управление программным обеспечением.' },
+              { t: 'Infrastructure & Platform Mgmt', d: 'Надзор за инфраструктурой (в т.ч. облаком).' }
+            ].map((c, i) => (
+              <div key={i} className="bg-slate-800/60 p-4 rounded-xl border border-slate-700">
+                <h4 className="font-bold text-slate-100 text-sm mb-1">{c.t}</h4>
+                <p className="text-xs text-slate-400">{c.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'core_practices',
+      title: '6. 15 Основных Практик',
+      icon: <Layers className="w-6 h-6" />,
+      content: (
+        <div className="space-y-6">
+          <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700 mb-8 sticky top-20 z-20 backdrop-blur-md hidden lg:block">
+            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Навигация:</h4>
+            <div className="flex flex-wrap gap-1.5">
+              {['Incident', 'Problem', 'Change', 'Service Desk', 'Serv Req', 'SLA', 'Cont Imp', 'Security', 'Rel Mgmt', 'Supplier', 'IT Asset', 'Config', 'Event', 'Release', 'Deploy'].map(p => (
+                <a key={p} href={`#prac-${p.replace(' ', '')}`} className="px-2.5 py-1 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors border border-slate-700 hover:border-indigo-500">
+                  {p}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-indigo-900/30 border-l-4 border-indigo-500 p-4 rounded-r-xl mb-6 text-indigo-100 text-sm">
+            Эти 15 практик — <strong>ядро экзамена!</strong> Нужно понимать их цели (Zweck) наизусть, отличать похожие друг от друга, а для первых семи (от Incident до Continual Improvement) знать ещё и <strong>детали работы</strong>.
+          </div>
+
+          <p className="text-slate-300 text-lg">Эти 7 практик — ядро экзамена. Нужно понимать КТО это делает, КАК и отличать похожие процессы.</p>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div id="prac-Incident" className="bg-linear-to-br from-red-900/20 to-slate-900 border border-red-800/40 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-red-400 mb-3 text-xl flex items-center"><AlertCircle className="w-6 h-6 mr-2" /> Incident Management</h3>
+              <div className="bg-red-950/50 rounded-xl p-4 mb-4 border-l-4 border-red-500 text-red-100">Цель: <strong>Максимально быстрое восстановление нормальной работы</strong> <Term>Wiederherstellung des normalen Servicebetriebs</Term>.</div>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>• <strong className="text-red-200">Инцидент:</strong> любое незапланированное прерывание или снижение качества.</li>
+                <li>• Приоритет: по Impact (влияние) × Urgency (срочность).</li>
+                <li>• <strong className="text-red-200">Swarming:</strong> специалисты разных уровней работают вместе вместо эскалации.</li>
+              </ul>
+            </div>
+            <div id="prac-Problem" className="bg-linear-to-br from-orange-900/20 to-slate-900 border border-orange-800/40 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-orange-400 mb-3 text-xl flex items-center"><HelpCircle className="w-6 h-6 mr-2" /> Problem Management</h3>
+              <div className="bg-orange-950/50 rounded-xl p-4 mb-4 border-l-4 border-orange-500 text-orange-100">Цель: выявление <strong>корневых причин</strong> <Term>Grundursachen</Term> и управление Workarounds.</div>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>• Инцидент = "пожар" (тушить сейчас). Проблема = поиск "поджигателя".</li>
+                <li>• <strong>Workaround:</strong> временное решение до постоянного исправления.</li>
+                <li>• 3 фазы: Identifikation → Untersuchung → Fehlerkontrolle.</li>
+              </ul>
+            </div>
+            <div id="prac-Change" className="bg-linear-to-br from-blue-900/20 to-slate-900 border border-blue-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
+              <h3 className="font-black text-blue-400 mb-3 text-xl flex items-center"><Settings className="w-6 h-6 mr-2" /> Change Enablement</h3>
+              <div className="bg-blue-950/50 rounded-xl p-4 mb-5 border-l-4 border-blue-500 text-blue-100">Цель: максимизация успешных изменений через правильную <strong>оценку рисков и авторизацию</strong>.</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[
+                  { c: 'blue', t: '1. Standard-Change', d: 'Заранее авторизованы (vorab autorisiert), низкий риск, чёткая инструкция. Пример: замена жёсткого диска.' },
+                  { c: 'blue', t: '2. Normaler Change', d: 'Требуют индивидуальной оценки и согласования Change-Autorität. Пример: миграция почты в облако.' },
+                  { c: 'red', t: '3. Notfall (Emergency)', d: 'Экстренные изменения, процедура ускоряется, но НЕ отменяется! Пример: патч при хакерской атаке.' },
+                ].map((t, i) => (
+                  <div key={i} className={`bg-slate-800/80 p-4 rounded-xl border ${t.c === 'red' ? 'border-red-900/50' : 'border-blue-900/50'}`}>
+                    <strong className={`block mb-2 ${t.c === 'red' ? 'text-red-400' : 'text-blue-400'}`}>{t.t}</strong>
+                    <p className="text-slate-300 text-sm">{t.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div id="prac-Service Desk" className="bg-linear-to-br from-green-900/20 to-slate-900 border border-green-800/40 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-green-400 mb-3 text-xl flex items-center"><Shield className="w-6 h-6 mr-2" /> Service Desk</h3>
+              <div className="bg-green-950/50 rounded-xl p-4 mb-4 border-l-4 border-green-500 text-green-100">Цель: <strong>единая точка контакта</strong> <Term>Einziger Kontaktpunkt / SPOC</Term> для всех пользователей.</div>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>• Service Desk — это лицо всего ИТ для пользователей.</li>
+                <li>• <strong>Критично:</strong> Эмпатия и эмоциональный интеллект важнее глубоких техзнаний!</li>
+              </ul>
+            </div>
+            <div id="prac-Service Request" className="bg-linear-to-br from-teal-900/20 to-slate-900 border border-teal-800/40 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-teal-400 mb-3 text-xl flex items-center"><CheckCircle className="w-6 h-6 mr-2" /> Service Request Management</h3>
+              <div className="bg-teal-950/50 rounded-xl p-4 mb-4 border-l-4 border-teal-500 text-teal-100">Цель: эффективная обработка предопределённых запросов <Term>Serviceanfragen</Term>.</div>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li>• Инцидент = поломка. Запрос = нормальная часть услуги (мышка, доступ).</li>
+                <li>• Обработка должна быть стандартизирована и автоматизирована.</li>
+              </ul>
+            </div>
+            <div id="prac-SLA" className="bg-linear-to-br from-purple-900/20 to-slate-900 border border-purple-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
+              <h3 className="font-black text-purple-400 mb-3 text-xl flex items-center"><Target className="w-6 h-6 mr-2" /> Service Level Management</h3>
+              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Установка бизнес-ориентированных целей (SLA) и оценка их выполнения.</div>
+              <p className="text-slate-300 text-sm mb-4">SLA должны отражать <Term>Geschäftsergebnisse</Term>. Проводит <Term>Review Meetings</Term>.</p>
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300"><strong className="text-purple-300">🍉 Эффект Арбуза:</strong> Метрики зелёные, а клиент недоволен. SLM решает это реальным фидбеком.</div>
+            </div>
+            
+            <div id="prac-ContImp" className="bg-linear-to-br from-purple-900/20 to-slate-900 border border-purple-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
+              <h3 className="font-black text-purple-400 mb-3 text-xl flex items-center"><Play className="w-6 h-6 mr-2" /> Continual Improvement</h3>
+              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Согласование практик и услуг с меняющимися бизнес-потребностями.</div>
+              <p className="text-slate-300 text-sm mb-4">Важно: Улучшения — ответственность <strong>КАЖДОГО</strong> сотрудника (от CEO до инженера).</p>
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300 mb-6"><strong className="text-purple-300">Реестр CIR:</strong> База <Term>Continual Improvement Register</Term> для всех предложений.</div>
+              <div className="mt-4"><CIModelDiagram lang="ru" /></div>
+            </div>
+
+            <div id="prac-Security" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Shield className="w-5 h-5 mr-2 text-indigo-400" /> Information Security Mgmt</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Защита информации, используемой в организации.</div>
+              <p className="text-slate-400 text-sm"><strong>Триада (CIA):</strong> <Term>Confidentiality</Term> (Конфиденциальность), <Term>Integrity</Term> (Целостность), <Term>Availability</Term> (Доступность) + Authentication и Non-repudiation.</p>
+            </div>
+
+            <div id="prac-RelMgmt" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Users className="w-5 h-5 mr-2 text-indigo-400" /> Relationship Management</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Установление и развитие связи со стейкхолдерами на всех уровнях.</div>
+              <p className="text-slate-400 text-sm">Обеспечивает понимание потребностей стейкхолдеров, максимизирует создание <Term>совместной ценности</Term>.</p>
+            </div>
+
+            <div id="prac-Supplier" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Award className="w-5 h-5 mr-2 text-indigo-400" /> Supplier Management</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Управление внешними поставщиками.</div>
+              <p className="text-slate-400 text-sm">Гарантирует, что поставщики выполняют обязательства (через Underpinning Contracts - UC) для поддержания качества сервисов компании.</p>
+            </div>
+
+            <div id="prac-ITAsset" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Layers className="w-5 h-5 mr-2 text-indigo-400" /> IT Asset Management</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Управление жизненным циклом ИТ-активов.</div>
+              <p className="text-slate-400 text-sm"><Term>IT Asset</Term> = любой ценный компонент (железо, софт, лицензии). Главное — <strong>финансовая ценность</strong> и контроль затрат/рисков.</p>
+            </div>
+
+            <div id="prac-Config" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Settings className="w-5 h-5 mr-2 text-indigo-400" /> Service Config. Mgmt (SCM)</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Точная информация о конфигурационных элементах (CI) и связях.</div>
+              <p className="text-slate-400 text-sm"><Term>Configuration Item (CI)</Term> — компонент, которым нужно управлять. В отличие от Asset, тут важна <strong>структура и технические связи</strong>, кто от кого зависит.</p>
+            </div>
+
+            <div id="prac-Event" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Activity className="w-5 h-5 mr-2 text-indigo-400" /> Monitoring & Event Mgmt</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Системное наблюдение и управление событиями в инфраструктуре.</div>
+              <p className="text-slate-400 text-sm">Типы событий: <Term>Информационные</Term> (логин успешен), <Term>Предупреждающие</Term> (диск заполнен на 80%), <Term>Уникальные/Exception</Term> (сервер упал = Incident).</p>
+            </div>
+
+            <div id="prac-Release" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 xl:col-span-1 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Play className="w-5 h-5 mr-2 text-blue-400" /> Release Management</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Цель: Предоставление новых и измененных услуг к использованию.</div>
+              <p className="text-slate-400 text-sm">💡 <strong>Бизнес-решение!</strong> Это момент, когда функция фактически становится доступна пользователям.</p>
+            </div>
+
+            <div id="prac-Deploy" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 xl:col-span-1 scroll-mt-40">
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Settings className="w-5 h-5 mr-2 text-blue-400" /> Deployment Management</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Цель: Инсталляция железа, софта, документации в Live.</div>
+              <p className="text-slate-400 text-sm">💡 <strong>Технический шаг!</strong> Код копируется на сервер, но может быть скрыт от пользователей (feature toggles), пока не произойдет Release.</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ]
+};
