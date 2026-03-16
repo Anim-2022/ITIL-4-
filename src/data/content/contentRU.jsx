@@ -1,6 +1,7 @@
 import {
   BookOpen, Layers, Target, Settings, Shield, HelpCircle, Award,
-  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity, ArrowRight
+  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity, ArrowRight,
+  TrendingUp, Map, PenTool, Wrench, Truck, RefreshCw, Zap, Eye, MousePointer2
 } from 'lucide-react';
 import Term from '../../components/Term.jsx';
 import AlignmentDiagram from '../../components/diagrams/AlignmentDiagram.jsx';
@@ -226,21 +227,80 @@ export const contentRU = {
       )
     },
     {
-      id: 'principles',
-      title: '2. 7 Принципов ITIL',
-      icon: <Target className="w-6 h-6" />,
+      id: 'principles', title: '2. 7 Принципов ITIL', icon: <Target className="w-6 h-6" />,
       content: (
-        <div className="space-y-6">
-          <p className="text-slate-300 text-lg"><Term>Leitlinien / Guiding Principles</Term> — универсальный компас для сложных ситуаций.</p>
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <div className="space-y-10">
+          <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 border-l-4 border-l-indigo-500">
+            <p className="text-slate-300 text-lg leading-relaxed">
+              <Term>Leitlinien / Guiding Principles</Term> — это рекомендации, которые могут направлять организацию в любых ситуациях, независимо от изменений её целей, стратегий или способов работы.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
             {[
-              { t: "Wertorientierung", eng: "Focus on value", d: "Каждый шаг должен иметь ответ: «Как это поможет бизнесу или клиенту?»", tip: "Сначала определите КТО потребитель и ЧТО для него означает «ценность»." },
-              { t: "Dort beginnen, wo man steht", eng: "Start where you are", d: "Запрещено «снести всё старое и построить с нуля». Сначала объективно оцените baseline.", tip: "Всегда найдутся существующие процессы или навыки для переиспользования." },
-              { t: "Iterative Weiterentwicklung mit Feedback", eng: "Progress iteratively with feedback", d: "Разбивайте работу на мелкие итерации (Agile). Waterfal-проекты часто проваливаются.", tip: "Обратная связь гарантирует актуальность решения для бизнеса." },
-              { t: "Zusammenarbeiten und Transparenz fördern", eng: "Collaborate and promote visibility", d: "Изолированная работа (Silos) — главный враг эффективности. Команды должны работать вместе.", tip: "Визуализируйте работу (Канбан). Скрытую работу невозможно приоритизировать." },
-              { t: "Ganzheitlich denken und arbeiten", eng: "Think and work holistically", d: "Изменение в одной части системы неизбежно затрагивает другие.", tip: "Всегда учитывайте все 4 измерения. Нельзя обновить технологию, забыв обучить людей." },
-              { t: "Auf Einfachheit und Praktikabilität achten", eng: "Keep it simple and practical", d: "Сложные бюрократические процессы убивают инновации. Избавьтесь от лишнего.", tip: "Используйте минимальное количество шагов для достижения Outcome." },
-              { t: "Optimieren und automatisieren", eng: "Optimize and automate", d: "Человеческий интеллект — для творчества, рутина — для машин.", tip: "Автоматизировать можно только оптимизированный процесс. Иначе — «автоматизированный бардак»." },
+              { 
+                t: "Wertorientierung", 
+                eng: "Focus on value", 
+                icon: <Target className="w-8 h-8 text-emerald-400" />,
+                bg: "from-emerald-600/20 to-emerald-900/10",
+                border: "border-emerald-500/30",
+                d: "Все действия должны прямо или косвенно приносить ценность стейкхолдерам.", 
+                tip: "Кто потребитель сервиса? Что для него ценно? (UX, функционал, цена)." 
+              },
+              { 
+                t: "Dort beginnen, wo man steht", 
+                eng: "Start where you are", 
+                icon: <Map className="w-8 h-8 text-blue-400" />,
+                bg: "from-blue-600/20 to-blue-900/10",
+                border: "border-blue-500/30",
+                d: "Не стройте всё с нуля! Оцените текущее состояние и сохраните то, что работает хорошо.", 
+                tip: "Используйте базовые измерения (Baseline). Наблюдайте лично (Direct Observation), а не верьте только отчетам." 
+              },
+              { 
+                t: "Iterative Weiterentwicklung", 
+                eng: "Progress iteratively with feedback", 
+                icon: <RefreshCw className="w-8 h-8 text-indigo-400" />,
+                bg: "from-indigo-600/20 to-indigo-900/10",
+                border: "border-indigo-500/30",
+                d: "Разбивайте большие задачи на мелкие итерации и постоянно собирайте обратную связь.", 
+                tip: "Петли обратной связи критически важны. Agile-подход вместо жесткого планирования 'Waterfall'." 
+              },
+              { 
+                t: "Zusammenarbeit fördern", 
+                eng: "Collaborate and promote visibility", 
+                icon: <Users className="w-8 h-8 text-cyan-400" />,
+                bg: "from-cyan-600/20 to-cyan-900/10",
+                border: "border-cyan-500/30",
+                d: "Разрушайте силосы! Сделайте информацию и работу видимой для всей команды.", 
+                tip: "Используйте Stakeholder Mapping. Прозрачность предотвращает недоверие и двойную работу." 
+              },
+              { 
+                t: "Ganzheitlich denken", 
+                eng: "Think and work holistically", 
+                icon: <Layers className="w-8 h-8 text-purple-400" />,
+                bg: "from-purple-600/20 to-purple-900/10",
+                border: "border-purple-500/30",
+                d: "Ни один процесс не изолирован. Всегда учитывайте все 4 измерения.", 
+                tip: "Ошибка в одной маленькой части может парализовать всю систему (SVS)." 
+              },
+              { 
+                t: "Einfach & Praktisch halten", 
+                eng: "Keep it simple and practical", 
+                icon: <Zap className="w-8 h-8 text-orange-400" />,
+                bg: "from-orange-600/20 to-orange-900/10",
+                border: "border-orange-500/30",
+                d: "Процессы с минимальным количеством шагов. Устраняйте всё, что не создает ценности.", 
+                tip: "Если шаг не приносит пользы — долой его! (Фокус на исходе/Outcome)." 
+              },
+              { 
+                t: "Optimieren & Automatisieren", 
+                eng: "Optimize and automate", 
+                icon: <Settings className="w-8 h-8 text-fuchsia-400" />,
+                bg: "from-fuchsia-600/20 to-fuchsia-900/10",
+                border: "border-fuchsia-500/30",
+                d: "Человеческий труд — для творческих задач, IT — для повторяющейся рутины.", 
+                tip: "ЭКЗАМЕНАЦИОННАЯ ЛОВУШКА: Сначала оптимизация, затем автоматизация. Автоматизированный хаос — это всё еще хаос." 
+              },
             ].map((p, i) => (
               <div key={i} className={`flex p-6 bg-slate-800/60 border border-slate-700 rounded-2xl ${i === 6 ? 'xl:col-span-2 xl:max-w-3xl xl:mx-auto' : ''}`}>
                 <div className="bg-indigo-900/50 text-indigo-400 font-black text-xl w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-indigo-700/50 mr-5">{i + 1}</div>
@@ -290,36 +350,114 @@ export const contentRU = {
       title: '4. Система и Цепочка (SVS/SVC)',
       icon: <Settings className="w-6 h-6" />,
       content: (
-        <div className="space-y-8">
-          <div className="bg-slate-800/60 p-6 rounded-2xl border border-slate-700">
-            <h3 className="font-bold text-2xl text-slate-100 mb-4">Система создания ценности (SVS)</h3>
-            <p className="text-slate-300 mb-4"><Term>Service-Wertschöpfungssystem</Term> — экосистема всей компании. Вход: <Term>Chance / Opportunity</Term> + <Term>Nachfrage / Demand</Term>. Выход: <Term>Wert / Value</Term>.</p>
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
-              {['Leitlinien\n7 Принципов', 'Governance\nУправление', 'SVC\nЯдро системы', 'Praktiken\n34 Практики', 'Continual\nImprovement'].map((c, i) => (
-                <div key={i} className={`p-4 rounded-xl border text-center ${i === 2 ? 'bg-indigo-900/60 border-indigo-500 col-span-2 lg:col-span-1' : 'bg-slate-900 border-slate-700'}`}>
-                  {c.split('\n').map((l, j) => <div key={j} className={j === 0 ? 'font-bold text-indigo-300 text-sm' : 'text-slate-500 text-xs mt-1'}>{l}</div>)}
+        <div className="space-y-12">
+          
+          {/* Service Value System (SVS) - Pyramid/Layered Design */}
+          <div id="svs" className="bg-slate-800/60 p-6 lg:p-10 rounded-3xl border border-slate-700 shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+            
+            <h3 className="font-black text-3xl text-slate-100 mb-2 relative z-10">Система создания ценности (SVS)</h3>
+            <p className="text-slate-300 text-lg mb-10 max-w-2xl relative z-10"><Term>SVS (Service Value System)</Term> описывает, как все компоненты и виды деятельности организации работают вместе, как единая система, для обеспечения создания ценности.</p>
+            
+            {/* The SVS Flow */}
+            <div className="flex flex-col lg:flex-row items-stretch gap-4 relative z-10">
+              
+              {/* Input */}
+              <div className="flex shrink-0 w-full lg:w-48 bg-slate-900/80 rounded-2xl border border-slate-700 p-6 flex-col justify-center items-center text-center shadow-inner">
+                <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mb-3 border border-slate-600">
+                  <Target className="w-6 h-6 text-fuchsia-400" />
                 </div>
-              ))}
+                <div className="text-fuchsia-400 font-bold uppercase tracking-widest text-xs mb-1">Потребность</div>
+                <div className="font-black text-slate-200 text-lg leading-tight">Возможность /<br/>Спрос</div>
+                <div className="text-[10px] text-slate-500 mt-2 uppercase">Opportunity / Demand</div>
+              </div>
+
+              {/* The Core System (SVS components) */}
+              <div className="flex-1 bg-linear-to-b from-indigo-900/30 to-slate-900/50 rounded-2xl border border-indigo-500/30 p-4 lg:p-6 flex flex-col gap-3">
+                
+                {/* Layer 1: Guiding Principles */}
+                <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-600/50 text-center shadow-sm">
+                  <span className="font-bold text-slate-200 text-sm">7 Руководящих Принципов (Guiding Principles)</span>
+                </div>
+                
+                {/* Layer 2: Governance */}
+                <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-600/50 text-center shadow-sm">
+                  <span className="font-bold text-slate-200 text-sm">Управление (Governance)</span>
+                </div>
+                
+                {/* Layer 3: SVC -> The Engine */}
+                <div className="bg-indigo-600/20 p-5 rounded-xl border border-indigo-500/50 text-center shadow-md relative overflow-hidden">
+                  <div className="absolute inset-0 bg-linear-to-r from-indigo-500/10 via-purple-500/10 to-indigo-500/10 skeleton-bg"></div>
+                  <div className="relative z-10 flex flex-col items-center">
+                    <Settings className="w-8 h-8 text-indigo-300 mb-2 animate-[spin_10s_linear_infinite]" />
+                    <span className="font-black tracking-wide text-indigo-300 text-lg uppercase text-center block">Цепочка создания ценности (SVC)</span>
+                    <span className="text-indigo-200/60 text-xs font-medium uppercase tracking-widest mt-1">ОПЕРАЦИОННОЕ ЯДРО СИСТЕМЫ</span>
+                  </div>
+                </div>
+
+                {/* Layer 4: Practices & Continual Improvement */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-600/50 text-center shadow-sm flex items-center justify-center">
+                    <span className="font-bold text-slate-200 text-sm">34 Практики (Practices)</span>
+                  </div>
+                  <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-600/50 text-center shadow-sm flex items-center justify-center">
+                    <span className="font-bold text-slate-200 text-sm">Постоянное Улучшение</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Output */}
+              <div className="shrink-0 w-full lg:w-48 bg-slate-900/80 rounded-2xl border border-slate-700 p-6 flex flex-col justify-center items-center text-center shadow-inner relative overflow-hidden group hover:border-fuchsia-500/50 transition-colors cursor-default">
+                <div className="absolute inset-0 bg-fuchsia-500/5 transition-opacity opacity-0 group-hover:opacity-100"></div>
+                <div className="w-16 h-16 bg-linear-to-br from-fuchsia-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg ring-4 ring-fuchsia-500/20 group-hover:scale-110 transition-transform">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-fuchsia-400 font-bold uppercase tracking-widest text-xs mb-1">Результат</div>
+                <div className="font-black text-transparent bg-clip-text bg-linear-to-r from-slate-100 to-slate-400 text-2xl">ЦЕННОСТЬ</div>
+                <div className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-widest">Value</div>
+              </div>
             </div>
-            <div className="mt-8 hidden lg:block"><SVSDiagram lang="ru" /></div>
+            {/* Diagram */}
+            <div className="mt-8 pt-8 border-t border-slate-700/50 hidden lg:block">
+               <p className="text-slate-500 text-xs font-bold uppercase mb-4 text-center tracking-widest">Официальная схема ITIL 4 (SVS)</p>
+               <SVSDiagram lang="ru" />
+            </div>
           </div>
-          <div className="bg-linear-to-br from-indigo-950 to-slate-900 p-6 rounded-2xl border border-indigo-800/50">
-            <h3 className="font-bold text-2xl text-indigo-300 mb-4">Цепочка создания ценности (SVC)</h3>
-            <div className="bg-indigo-900/40 border-l-4 border-fuchsia-500 p-4 rounded-r-xl mb-6 text-indigo-100 text-sm">
-              <strong>⚠️ Архиважно:</strong> SVC нелинейна! Нет жёсткого порядка 1→2→3. Практики не привязаны к одному шагу.
+
+          {/* Service Value Chain (SVC) */}
+          <div id="svc" className="bg-linear-to-br from-slate-900 to-indigo-950/40 p-6 lg:p-10 rounded-3xl border border-indigo-900/50 shadow-2xl relative overflow-hidden">
+            <h3 className="font-black text-3xl text-indigo-300 mb-6 flex items-center gap-3">
+              <Activity className="w-8 h-8 text-fuchsia-500" /> Цепочка создания ценности (SVC)
+            </h3>
+            
+            <div className="bg-red-950/40 border border-red-900/60 p-5 rounded-2xl mb-8 flex items-start gap-4 shadow-inner">
+              <AlertCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-red-400 block mb-1 text-lg">Экзаменационная ловушка: SVC НЕ является линейной!</strong>
+                <p className="text-red-200/80 text-sm leading-relaxed">На экзамене Foundation часто пытаются представить SVC как строгий процесс или жизненный цикл (шаг 1, затем шаг 2 и т.д.). Это <strong>ГРУБАЯ ОШИБКА</strong>. Практики могут использовать любую активность SVC в любое время и в любом порядке. Это гибкая операционная модель системы, а не водопадный конвейер.</p>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                ['Planen / Plan', 'Общее понимание видения и стратегии по всем 4 измерениям.'],
-                ['Verbessern / Improve', 'Постоянное улучшение продуктов, услуг и практик.'],
-                ['Engagement / Engage', 'Взаимодействие со стейкхолдерами, построение отношений.'],
-                ['Design & Transition', 'Гарантия качества, стоимости и Time-to-market новых сервисов.'],
-                ['Erhalten/Erstellen / Obtain/Build', 'Разработка (Build) или покупка (Obtain) компонентов.'],
-                ['Bereitstellen & Unterstützen / Deliver & Support', 'Доставка и ежедневная поддержка сервиса.'],
-              ].map(([n, d], i) => (
-                <div key={i} className="bg-slate-900/80 p-4 rounded-xl border border-indigo-900/50">
-                  <span className="font-bold text-indigo-300 text-sm block mb-1">{n}</span>
-                  <p className="text-slate-400 text-xs">{d}</p>
+                { n: 'Планирование / Plan', d: 'Обеспечение общего понимания видения, текущего статуса и направления улучшений во всех 4 измерениях и всех продуктах.', i: <Map className="w-6 h-6 text-indigo-300" />, b: 'Ориентир' },
+                { n: 'Улучшение / Improve', d: 'Обеспечение постоянного улучшения продуктов, услуг и самих практик на всех этапах цепочки создания ценности.', i: <TrendingUp className="w-6 h-6 text-green-400" />, b: 'Оптимизация' },
+                { n: 'Взаимодействие / Engage', d: 'Правильное понимание потребностей стейкхолдеров, прозрачность и поддержание постоянных хороших отношений со всеми.', i: <Users className="w-6 h-6 text-orange-400" />, b: 'Коммуникация' },
+                { n: 'Дизайн & Переход / Design & Transition', d: 'Гарантия того, что новые продукты и сервисы полностью соответствуют требованиям к качеству, затратам и времени (Time-to-Market).', i: <PenTool className="w-6 h-6 text-fuchsia-400" />, b: 'Создание' },
+                { n: 'Получение/Построение / Obtain/Build', d: 'Гарантия того, что компоненты сервиса доступны именно тогда и там, где они нужны, и соответствуют всем спецификациям.', i: <Wrench className="w-6 h-6 text-blue-400" />, b: 'Компоненты' },
+                { n: 'Предоставление & Поддержка / Deliver & Support', d: 'Обеспечение предоставления сервисов и их поддержки изо дня в день в точном соответствии с согласованными SLA.', i: <Truck className="w-6 h-6 text-purple-400" />, b: 'Эксплуатация' },
+              ].map((item, i) => (
+                <div key={i} className="bg-slate-900/80 p-6 rounded-2xl border border-indigo-900/40 hover:border-indigo-500/50 hover:bg-slate-800 transition-all group shadow-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:border-indigo-500/50 transition-all">
+                      {item.i}
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.b}</div>
+                      <h4 className="font-bold text-slate-200 leading-tight block">{item.n}</h4>
+                    </div>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed">{item.d}</p>
                 </div>
               ))}
             </div>

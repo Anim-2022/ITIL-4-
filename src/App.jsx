@@ -148,7 +148,6 @@ export default function App() {
       - Практики (Practices): ТЕСТИРУЙ ТОЛЬКО 15 ОСНОВНЫХ ПРАКТИК (Incident, Problem, Change Enablement, Service Desk, Service Request, SLA, Continual Improvement, Information Security, Relationship, Supplier, IT Asset, Service Configuration, Monitoring & Event, Release, Deployment). 
         СТРОГО ЗАПРЕЩЕНО делать вопросы по остальным 19 второстепенным практикам (например, Architecture Management, Business Analysis, Workforce Management и т.д. - их на реальном Foundation тестируют редко или не тестируют вообще).
       
-      Верни СТРОГО JSON массив объектов без маркдауна. Структура:
       [{"q":"Текст вопроса","options":["A","B","C","D"],"correct":0,"exp":"Краткое объяснение","topic":"Тема (например, Praktiken)"}]`;
 
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -156,38 +155,60 @@ export default function App() {
         throw new Error('API Key is missing. Please add VITE_GEMINI_API_KEY to your .env file.');
       }
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: {
-            responseMimeType: "application/json",
-            responseSchema: {
-              type: "ARRAY",
-              items: {
-                type: "OBJECT",
-                properties: {
-                  q: { type: "STRING" },
-                  options: { type: "ARRAY", items: { type: "STRING" } },
-                  correct: { type: "INTEGER" },
-                  exp: { type: "STRING" },
-                  topic: { type: "STRING" }
-                },
-                required: ["q", "options", "correct", "exp", "topic"]
+      // Список моделей для попыток (fallback)
+      const models = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash-lite-preview-02-05'];
+      let lastError = null;
+      let successData = null;
+
+      for (const modelId of models) {
+        try {
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                responseMimeType: "application/json",
+                responseSchema: {
+                  type: "ARRAY",
+                  items: {
+                    type: "OBJECT",
+                    properties: {
+                      q: { type: "STRING" },
+                      options: { type: "ARRAY", items: { type: "STRING" } },
+                      correct: { type: "INTEGER" },
+                      exp: { type: "STRING" },
+                      topic: { type: "STRING" }
+                    },
+                    required: ["q", "options", "correct", "exp", "topic"]
+                  }
+                }
               }
-            }
+            })
+          });
+
+          if (!response.ok) {
+            const errData = await response.json();
+            console.warn(`Model ${modelId} failed:`, errData);
+            throw new Error(`HTTP ${response.status}: ${errData?.error?.message || 'Unknown Error'}`);
           }
-        })
-      });
+
+          successData = await response.json();
+          console.info(`Successfully generated quiz using model: ${modelId}`);
+          break; // Успех! Выходим из цикла моделей
+        } catch (err) {
+          lastError = err;
+          // Если это не ошибка сети, а ошибка API (например 429), пробуем следующую модель
+          continue;
+        }
+      }
+
+      if (!successData) {
+        throw lastError || new Error('All models failed to generate quiz.');
+      }
 
       clearInterval(stepInterval);
-      if (!response.ok) {
-        const errData = await response.json();
-        console.error('Gemini API Error:', errData);
-        throw new Error(`HTTP ${response.status}: ${errData?.error?.message || 'Unknown API Error'}`);
-      }
-      const data = await response.json();
+      const data = successData;
       
       let generatedText = data.candidates[0].content.parts[0].text;
       // Иногда модель может обернуть JSON в маркдаун-блоки ```json ... ```
@@ -200,7 +221,7 @@ export default function App() {
       const generated = JSON.parse(generatedText);
       
       if (generated && generated.length > 0) {
-        setAiQuestions(generated); 
+        setAiQuestions(generated.slice(0, 40)); // Hard cap to exactly 40 
         setQuizStarted(true); 
       } else throw new Error('Empty response');
     } catch (err) {
@@ -274,35 +295,37 @@ export default function App() {
       </div>
 
       {/* Sidebar */}
-      <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-full md:w-72 bg-slate-900/95 border-b md:border-b-0 md:border-r border-slate-800 shrink-0 shadow-2xl z-20 md:h-screen md:sticky md:top-0 overflow-y-auto pb-8`}>
-        <div className="hidden md:block p-6 md:p-8">
-          <h1 className="text-3xl font-black text-slate-100">ITIL 4 <span className="text-indigo-500">Prep</span></h1>
-          <p className="text-xs text-slate-500 mt-1 font-bold tracking-widest uppercase">Peoplecert Exam</p>
-          <div className="mt-5 flex bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
-            <button onClick={() => setLang('ru')} className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${lang === 'ru' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}`}>RU</button>
-            <button onClick={() => setLang('de')} className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${lang === 'de' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}`}>DE</button>
+      <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-full md:w-72 shrink-0 z-20 md:h-screen md:sticky md:top-0 border-b md:border-b-0 md:border-r border-slate-800 bg-slate-900/95 shadow-2xl overflow-y-auto`}>
+        <div className="flex flex-col min-h-full pb-32">
+          <div className="hidden md:block p-6 md:p-8 shrink-0">
+            <h1 className="text-3xl font-black text-slate-100">ITIL 4 <span className="text-indigo-500">Prep</span></h1>
+            <p className="text-xs text-slate-500 mt-1 font-bold tracking-widest uppercase">Peoplecert Exam</p>
+            <div className="mt-5 flex bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
+              <button onClick={() => setLang('ru')} className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${lang === 'ru' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}`}>RU</button>
+              <button onClick={() => setLang('de')} className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${lang === 'de' ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-slate-200'}`}>DE</button>
+            </div>
+            
+            <button onClick={() => setIsSearchOpen(true)} className="mt-4 w-full flex items-center justify-between px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 rounded-xl transition-colors border border-slate-700/50">
+              <div className="flex items-center gap-2 text-sm font-medium">
+                <span className="text-lg">🔍</span> {lang === 'de' ? 'Suchen...' : 'Поиск...'}
+              </div>
+              <kbd className="hidden lg:block text-[10px] font-mono bg-slate-900 border border-slate-700 px-2 py-1 rounded text-slate-500">Ctrl K</kbd>
+            </button>
           </div>
-          
-          <button onClick={() => setIsSearchOpen(true)} className="mt-4 w-full flex items-center justify-between px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 rounded-xl transition-colors border border-slate-700/50">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              <span className="text-lg">🔍</span> {lang === 'de' ? 'Suchen...' : 'Поиск...'}
-            </div>
-            <kbd className="hidden lg:block text-[10px] font-mono bg-slate-900 border border-slate-700 px-2 py-1 rounded text-slate-500">Ctrl K</kbd>
-          </button>
-        </div>
 
-        <div className="px-4 space-y-0.5">
-          {sidebarItems.map((item) => (
-            <div key={item.id}>
-              {item.section && <p className="px-4 text-[10px] font-black text-slate-600 uppercase tracking-widest mt-6 mb-2">{item.section}</p>}
-              <button onClick={() => { setActiveTab(item.id); setMobileMenuOpen(false); }}
-                className={`w-full flex items-center px-4 py-3 text-sm font-bold rounded-2xl transition-all text-left gap-3 ${item.special ? (activeTab === item.id ? 'bg-linear-to-r from-fuchsia-600 to-purple-600 text-white shadow-lg' : 'bg-slate-800/40 text-fuchsia-400 border border-fuchsia-900/30') : (activeTab === item.id ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800')}`}>
-                <span className={`shrink-0 ${item.special ? (activeTab === item.id ? 'text-fuchsia-200' : 'text-fuchsia-500') : (activeTab === item.id ? 'text-indigo-200' : 'text-slate-500')}`}>{item.icon}</span>
-                <span className="flex-1 leading-tight">{item.label}</span>
-                {!item.special && moduleProgress[item.id] && <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0" />}
-              </button>
-            </div>
-          ))}
+          <div className="px-4 space-y-0.5 w-full shrink-0 flex-1">
+            {sidebarItems.map((item) => (
+              <div key={item.id}>
+                {item.section && <p className="px-4 text-[10px] font-black text-slate-600 uppercase tracking-widest mt-6 mb-2">{item.section}</p>}
+                <button onClick={() => { setActiveTab(item.id); setMobileMenuOpen(false); }}
+                  className={`w-full flex items-center px-4 py-3 text-sm font-bold rounded-2xl transition-all text-left gap-3 ${item.special ? (activeTab === item.id ? 'bg-linear-to-r from-fuchsia-600 to-purple-600 text-white shadow-lg' : 'bg-slate-800/40 text-fuchsia-400 border border-fuchsia-900/30') : (activeTab === item.id ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:bg-slate-800')}`}>
+                  <span className={`shrink-0 ${item.special ? (activeTab === item.id ? 'text-fuchsia-200' : 'text-fuchsia-500') : (activeTab === item.id ? 'text-indigo-200' : 'text-slate-500')}`}>{item.icon}</span>
+                  <span className="flex-1 leading-tight">{item.label}</span>
+                  {!item.special && moduleProgress[item.id] && <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0" />}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </nav>
 
