@@ -1,6 +1,6 @@
 import {
   BookOpen, Layers, Target, Settings, Shield, HelpCircle, Award,
-  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity
+  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity, ArrowRight
 } from 'lucide-react';
 import Term from '../../components/Term.jsx';
 import AlignmentDiagram from '../../components/diagrams/AlignmentDiagram.jsx';
@@ -57,7 +57,7 @@ export const contentDE = {
           <p className="text-slate-300 text-lg lg:text-xl font-medium leading-relaxed">Das Fundament von ITIL 4: Die IT ist ein vollwertiger Business-Partner. Arbeit wird daran gemessen, ob sie dem Business hilft.</p>
           <div className="mt-8 mb-6"><AlignmentDiagram lang="de" /></div>
           
-          <h3 className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Rollen <Term>Servicekonsumenten</Term></h3>
+          <h3 id="roles" className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Rollen <Term>Servicekonsumenten</Term></h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
@@ -74,11 +74,11 @@ export const contentDE = {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <div id="value" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
               <h3 className="text-xl font-bold text-indigo-400 mb-4">Wert <Term>Value / Wert</Term></h3>
               <p className="text-slate-300 text-base mb-4">Wert ist subjektiv wahrgenommener Nutzen. In ITIL 4 entsteht er <strong>gemeinsam</strong> <Term>Gemeinsame Wertschöpfung / Co-creation</Term>: Provider stellt die Ressource bereit, der Wert entsteht erst durch die Nutzung.</p>
             </div>
-            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <div id="offering" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
               <h3 className="text-xl font-bold text-indigo-400 mb-4">Serviceangebot <Term>Service Offering</Term></h3>
               <ul className="space-y-2 text-base text-slate-300">
                 <li><strong>1. Güter (Goods):</strong> Übertragung des Eigentumsrechts (z.B. Smartphone).</li>
@@ -88,7 +88,7 @@ export const contentDE = {
             </div>
           </div>
 
-          <div className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
+          <div id="relationships" className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
             <h3 className="text-xl font-bold text-indigo-400 mb-4">Servicebeziehungen <Term>Service Relationships</Term></h3>
             <p className="text-slate-300 text-base mb-4">Die Interaktion zwischen Provider und Konsument umfasst 3 Teile:</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -107,31 +107,114 @@ export const contentDE = {
             </div>
           </div>
 
-          <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
-            <h3 className="text-xl font-bold text-indigo-400 mb-6">Ergebnisse, Kosten, Risiken</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { t: 'Ergebnis / Outcome', d: 'Business-Resultat. Output = installierter Messenger; Outcome = 30% schnellere Kommunikation.' },
-                { t: 'Kosten / Cost', d: 'Service nimmt Kosten ab (keine eigenen Server) und fügt neue hinzu (Abogebühr).' },
-                { t: 'Risiko / Risk', d: 'Service reduziert Risiken (Backups) und fügt neue ein (Provider-Ausfall).' },
-              ].map((c, i) => (
-                <div key={i} className="bg-slate-900/60 p-5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-slate-100 block mb-2"><Term>{c.t}</Term></span>
-                  <span className="text-slate-300 text-sm">{c.d}</span>
+          {/* Output vs Outcome */}
+          <div id="outcomes" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <h3 className="text-xl font-bold text-indigo-400 mb-6 flex items-center gap-3">
+              <Activity className="w-5 h-5" /> Output vs. Outcome
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block z-10">
+                <div className="bg-slate-900 p-2 rounded-full border border-slate-700 shadow-xl text-indigo-400">
+                  <ArrowRight className="w-6 h-6" />
                 </div>
-              ))}
+              </div>
+              
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                <div className="text-fuchsia-400 font-black text-xs uppercase tracking-widest mb-2">Greifbares Resultat</div>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Ausgabe / Output</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Ein greifbares oder immaterielles Artefakt, das durch eine Aktivität erzeugt wird.</p>
+                <div className="bg-slate-800/50 p-3 rounded-lg border border-slate-700 text-slate-300 text-sm">
+                  <strong>Beispiel:</strong> Installierter E-Mail-Server oder abgeschlossenes Training.
+                </div>
+              </div>
+
+              <div className="bg-linear-to-br from-indigo-900/40 to-slate-900/60 p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 transition-colors">
+                <div className="text-indigo-400 font-black text-xs uppercase tracking-widest mb-2">Gewünschter Effekt</div>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Ergebnis / Outcome</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Ein Resultat für einen Stakeholder, das durch einen oder mehrere Outputs ermöglicht wird.</p>
+                <div className="bg-indigo-600/20 p-3 rounded-lg border border-indigo-500/30 text-indigo-200 text-sm">
+                  <strong>Beispiel:</strong> Mitarbeiter können effizient kommunizieren.
+                </div>
+              </div>
             </div>
           </div>
-          <div className="bg-linear-to-r from-indigo-900/40 to-slate-800/80 border-l-4 border-indigo-500 p-6 lg:p-8 rounded-r-2xl shadow-md">
-            <strong className="text-xl lg:text-2xl text-indigo-300 block mb-4">Zweckmäßigkeit & Einsatzfähigkeit (Utility & Warranty):</strong>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
-                <p className="font-bold text-indigo-200 mb-2"><Term>Zweckmäßigkeit / Utility</Term> — fit for purpose</p>
-                <p className="text-slate-400 text-sm">WAS der Service tut: Leistung steigern ODER Einschränkungen aufheben (z.B. VPN → Homeoffice).</p>
+
+          {/* Costs & Risks Balance */}
+          <div id="cost-risk" className="bg-slate-800/50 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <h3 className="text-xl font-bold text-indigo-400 mb-8 flex items-center gap-3">
+              <Layers className="w-5 h-5" /> Kosten- und Risiko-Balance
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Costs */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-red-400 font-bold mb-2">
+                   <div className="w-2 h-8 bg-red-500 rounded-full"></div>
+                   <span><Term>Kosten / Cost</Term></span>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-red-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Abgenommen</p>
+                    <p className="text-green-400 text-sm font-medium">Kunde muss keine eigene Server-Hardware kaufen/warten.</p>
+                  </div>
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-red-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Auferlegt</p>
+                    <p className="text-red-400 text-sm font-medium">Kunde muss monatliche Abo-Gebühren und Internetkosten zahlen.</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
-                <p className="font-bold text-indigo-200 mb-2"><Term>Einsatzfähigkeit / Warranty</Term> — fit for use</p>
-                <p className="text-slate-400 text-sm">WIE der Service arbeitet: Verfügbarkeit, Kapazität, Sicherheit, Kontinuität. Beide sind nötig!</p>
+
+              {/* Risks */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-orange-400 font-bold mb-2">
+                   <div className="w-2 h-8 bg-orange-500 rounded-full"></div>
+                   <span><Term>Risiko / Risk</Term></span>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-orange-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Reduziert</p>
+                    <p className="text-green-400 text-sm font-medium">Provider kümmert sich um Backups und Security-Updates.</p>
+                  </div>
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-orange-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Neu eingeführt</p>
+                    <p className="text-red-400 text-sm font-medium">Abhängigkeit vom Provider ( Vendor Lock-in ) und Internetleitung.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Value Formula: Utility & Warranty */}
+          <div id="utility-warranty" className="relative group overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative bg-slate-800/80 border border-slate-700 p-6 lg:p-8 rounded-2xl shadow-xl">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-1 space-y-6">
+                  <h3 className="text-2xl font-black text-indigo-400 flex items-center gap-3">
+                    <Award className="w-7 h-7" /> Die Wert-Formel
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-slate-900/60 p-5 rounded-xl border border-indigo-500/20">
+                      <h4 className="font-bold text-indigo-300 text-lg mb-2 underline decoration-indigo-500/30 underline-offset-4"><Term>Zweckmäßigkeit / Utility</Term></h4>
+                      <p className="text-slate-300 text-sm mb-2 italic">"Fit for purpose"</p>
+                      <p className="text-slate-400 text-sm font-medium tracking-tight">Erhöht die Performance des Kunden ODER beseitigt Hindernisse.</p>
+                      <div className="mt-3 text-[10px] font-bold text-indigo-500 uppercase tracking-widest">WAS der Service macht</div>
+                    </div>
+                    <div className="bg-slate-900/60 p-5 rounded-xl border border-fuchsia-500/20">
+                      <h4 className="font-bold text-fuchsia-300 text-lg mb-2 underline decoration-fuchsia-500/30 underline-offset-4"><Term>Einsatzfähigkeit / Warranty</Term></h4>
+                      <p className="text-slate-300 text-sm mb-2 italic">"Fit for use"</p>
+                      <p className="text-slate-400 text-sm font-medium tracking-tight">Verfügbarkeit, Kapazität, Sicherheit, Kontinuität.</p>
+                      <div className="mt-3 text-[10px] font-bold text-fuchsia-500 uppercase tracking-widest">WIE der Service arbeitet</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="shrink-0 flex items-center justify-center p-8 bg-slate-900/80 rounded-3xl border border-slate-700 shadow-2xl">
+                  <div className="text-center">
+                    <div className="text-xs font-bold text-slate-500 uppercase mb-2">Resultat</div>
+                    <div className="text-4xl font-black bg-linear-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">VALUE</div>
+                    <div className="mt-2 text-[10px] text-slate-500 italic">Utility + Warranty = Value</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

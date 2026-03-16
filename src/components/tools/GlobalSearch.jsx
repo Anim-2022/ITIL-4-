@@ -2,13 +2,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, BookOpen, Globe, ArrowRight } from 'lucide-react';
 import { GLOSSARY } from '../../data/glossary.js';
 
-// Helper to extract plain text from React nodes
-const extractTextFromNode = (node) => {
-  if (typeof node === 'string' || typeof node === 'number') return String(node);
-  if (!node) return '';
-  if (Array.isArray(node)) return node.map(extractTextFromNode).join(' ');
-  if (node.props && node.props.children) return extractTextFromNode(node.props.children);
-  return '';
+// Helper to extract text and track the nearest parent ID (anchor)
+const indexModuleContent = (node, currentId = null, results = []) => {
+  if (typeof node === 'string' || typeof node === 'number') {
+    if (String(node).trim()) {
+      results.push({ text: String(node), id: currentId });
+    }
+    return results;
+  }
+  if (!node) return results;
+
+  if (Array.isArray(node)) {
+    node.forEach(child => indexModuleContent(child, currentId, results));
+    return results;
+  }
+
+  if (node.props) {
+    // If this node has an ID, any text inside it (down to the next node with an ID) belongs to this anchor
+    const nextId = node.props.id || currentId;
+    
+    if (node.props.children) {
+      indexModuleContent(node.props.children, nextId, results);
+    }
+  }
+  return results;
 };
 
 export default function GlobalSearch({ isOpen, onClose, lang, contentData, onNavigate }) {
@@ -73,31 +90,55 @@ export default function GlobalSearch({ isOpen, onClose, lang, contentData, onNav
     // 2. Search Modules Content
     const modules = contentData.studyModules;
     modules.forEach(mod => {
-      const modText = extractTextFromNode(mod.content).toLowerCase();
-      const titleText = mod.title.toLowerCase();
+      const indexedContent = indexModuleContent(mod.content);
+      const titleMatch = mod.title.toLowerCase().includes(lowerQuery);
       
-      if (titleText.includes(lowerQuery) || modText.includes(lowerQuery)) {
-        // Find a relevant snippet around the match if it's in the text
-        const snippetIndex = modText.indexOf(lowerQuery);
-        let snippet = '';
-        if (snippetIndex !== -1) {
-           const start = Math.max(0, snippetIndex - 40);
-           const end = Math.min(modText.length, snippetIndex + lowerQuery.length + 40);
-           snippet = '...' + modText.substring(start, end) + '...';
-        }
-
-        searchResults.push({
+      if (titleMatch) {
+         searchResults.push({
           id: `module-${mod.id}`,
           type: 'module',
           title: mod.title,
           targetId: mod.id,
-          content: snippet,
+          anchorId: null,
+          content: lang === 'de' ? 'Gesamtes Modul' : 'Весь модуль',
           icon: <BookOpen className="w-4 h-4 text-indigo-400" />
         });
       }
+
+      // Search inside the content snippets
+      indexedContent.forEach((item, idx) => {
+        if (item.text.toLowerCase().includes(lowerQuery)) {
+          const modText = item.text.toLowerCase();
+          const matchIdx = modText.indexOf(lowerQuery);
+          const start = Math.max(0, matchIdx - 40);
+          const end = Math.min(modText.length, matchIdx + lowerQuery.length + 40);
+          const snippet = '...' + item.text.substring(start, end) + '...';
+
+          searchResults.push({
+            id: `module-${mod.id}-item-${idx}`,
+            type: 'module',
+            title: mod.title,
+            targetId: mod.id,
+            anchorId: item.id,
+            content: snippet,
+            icon: <BookOpen className="w-4 h-4 text-indigo-400" />
+          });
+        }
+      });
     });
 
-    setResults(searchResults);
+    // Deduplicate results pointing to the same anchor/module if they are identical
+    const uniqueResults = [];
+    const seen = new Set();
+    searchResults.forEach(res => {
+      const key = `${res.targetId}-${res.anchorId}-${res.title}`;
+      if (!seen.has(key)) {
+        uniqueResults.push(res);
+        seen.add(key);
+      }
+    });
+
+    setResults(uniqueResults.slice(0, 15)); // Limit to top 15 results
   }, [query, lang, contentData]);
 
   if (!isOpen) return null;
@@ -150,7 +191,7 @@ export default function GlobalSearch({ isOpen, onClose, lang, contentData, onNav
                   key={res.id} 
                   onClick={() => {
                     if (res.type === 'module') {
-                      onNavigate(res.targetId);
+                      onNavigate(res.targetId, res.anchorId);
                       onClose();
                     }
                   }}

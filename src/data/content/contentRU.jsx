@@ -1,6 +1,6 @@
 import {
   BookOpen, Layers, Target, Settings, Shield, HelpCircle, Award,
-  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity
+  CheckCircle, AlertCircle, Play, Info, Users, Headset, Activity, ArrowRight
 } from 'lucide-react';
 import Term from '../../components/Term.jsx';
 import AlignmentDiagram from '../../components/diagrams/AlignmentDiagram.jsx';
@@ -59,7 +59,7 @@ export const contentRU = {
           <p className="text-slate-300 text-lg lg:text-xl font-medium leading-relaxed">Фундамент ITIL 4 строится на том, что ИТ-отдел — это не просто статья расходов на серверы, а полноправный бизнес-партнер.</p>
           <div className="mt-8 mb-6"><AlignmentDiagram lang="ru" /></div>
           
-          <h3 className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Роли потребителей <Term>Servicekonsumenten</Term></h3>
+          <h3 id="roles" className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Роли в <Term>Service Relationship Management</Term></h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
@@ -76,14 +76,14 @@ export const contentRU = {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
-              <h3 className="text-xl font-bold text-indigo-400 mb-4">Ко-креация Ценности <Term>Wert / Value</Term></h3>
+            <div id="value" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-indigo-400 mb-4">Ценность / <Term>Value</Term></h3>
               <div className="bg-indigo-900/30 border border-indigo-700/50 p-4 rounded-xl text-slate-300 text-base leading-relaxed">
                 <strong className="text-indigo-300">💡 В чем суть (Ко-креация):</strong> В старом ITIL ИТ "доставляло" ценность (как курьер пиццу). В ITIL 4 ценность <strong>создается совместно</strong> <Term>Co-creation</Term>. Провайдер дает ресурс (CRM), но ценность возникает <em>только когда</em> клиент им пользуется.
               </div>
             </div>
-            <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
-              <h3 className="text-xl font-bold text-indigo-400 mb-4">Предложение Услуги <Term>Service Offering</Term></h3>
+            <div id="offering" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-indigo-400 mb-4">Сервисное предложение / <Term>Service Offering</Term></h3>
               <ul className="space-y-2 text-base text-slate-300">
                 <li><strong>1. Товары (Goods):</strong> передача права собственности (смартфон сотруднику).</li>
                 <li><strong>2. Доступ к ресурсам:</strong> право собственности не передаётся (Wi-Fi, облако).</li>
@@ -92,8 +92,8 @@ export const contentRU = {
             </div>
           </div>
 
-          <div className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
-            <h3 className="text-xl font-bold text-indigo-400 mb-4">Сервисные отношения <Term>Servicebeziehungen</Term></h3>
+          <div id="relationships" className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
+            <h3 className="text-xl font-bold text-indigo-400 mb-4">Сервисные отношения / <Term>Service Relationships</Term></h3>
             <p className="text-slate-300 text-base mb-4">Отношения между провайдером и потребителем состоят из 3 компонентов:</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
@@ -111,32 +111,114 @@ export const contentRU = {
             </div>
           </div>
 
-          <div className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
-            <h3 className="text-xl font-bold text-indigo-400 mb-6">Результаты, Затраты, Риски</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { t: 'Ergebnis / Outcome', d: 'Результат для бизнеса. Output — установленный мессенджер; Outcome — ускорение коммуникации на 30%.' },
-                { t: 'Kosten / Cost', d: 'Сервис снимает одни затраты (не нужны свои серверы) и добавляет новые (подписка).' },
-                { t: 'Risiko / Risk', d: 'Сервис снижает одни риски (бэкапы за клиента) и вносит новые (риск банкротства провайдера).' },
-              ].map((c, i) => (
-                <div key={i} className="bg-slate-900/60 p-5 rounded-xl border border-slate-700/50">
-                  <span className="font-bold text-slate-100 block mb-2"><Term>{c.t}</Term></span>
-                  <span className="text-slate-300 text-sm">{c.d}</span>
+          {/* Output vs Outcome */}
+          <div id="outcomes" className="bg-slate-800/80 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <h3 className="text-xl font-bold text-indigo-400 mb-6 flex items-center gap-3">
+              <Activity className="w-5 h-5" /> Output vs. Outcome
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block z-10">
+                <div className="bg-slate-900 p-2 rounded-full border border-slate-700 shadow-xl text-indigo-400">
+                  <ArrowRight className="w-6 h-6" />
                 </div>
-              ))}
+              </div>
+              
+              <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
+                <div className="text-fuchsia-400 font-black text-xs uppercase tracking-widest mb-2">Осязаемый результат</div>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Изделие / Output</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Материальный или нематериальный артефакт, созданный в результате деятельности.</p>
+                <div className="bg-slate-800/50 p-3 rounded-lg border border-slate-700 text-slate-300 text-sm">
+                  <strong>Пример:</strong> Установленный почтовый сервер или завершенный тренинг.
+                </div>
+              </div>
+
+              <div className="bg-linear-to-br from-indigo-900/40 to-slate-900/60 p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 transition-colors">
+                <div className="text-indigo-400 font-black text-xs uppercase tracking-widest mb-2">Желаемый эффект</div>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Результат / Outcome</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Результат для заинтересованной стороны, поддерживаемый одним или несколькими Output.</p>
+                <div className="bg-indigo-600/20 p-3 rounded-lg border border-indigo-500/30 text-indigo-200 text-sm">
+                  <strong>Пример:</strong> Сотрудники могут эффективно и быстро общаться.
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div className="bg-linear-to-r from-indigo-900/40 to-slate-800/80 border-l-4 border-indigo-500 p-6 rounded-r-2xl">
-            <strong className="text-xl text-indigo-300 block mb-4">Utility & Warranty:</strong>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
-                <p className="font-bold text-indigo-200 mb-2"><Term>Zweckmäßigkeit / Utility</Term> — fit for purpose</p>
-                <p className="text-slate-400 text-sm">ЧТО сервис делает? Повышает производительность или снимает ограничения (VPN → работа из дома).</p>
+
+          {/* Costs & Risks Balance */}
+          <div id="cost-risk" className="bg-slate-800/50 rounded-2xl border border-slate-700 p-6 lg:p-8">
+            <h3 className="text-xl font-bold text-indigo-400 mb-8 flex items-center gap-3">
+              <Layers className="w-5 h-5" /> Баланс Затрат и Рисков
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Costs */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-red-400 font-bold mb-2">
+                   <div className="w-2 h-8 bg-red-500 rounded-full"></div>
+                   <span><Term>Затраты / Cost</Term></span>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-red-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Снятые с клиента</p>
+                    <p className="text-green-400 text-sm font-medium">Клиенту не нужно покупать/обслуживать серверное оборудование.</p>
+                  </div>
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-red-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Наложенные сервисом</p>
+                    <p className="text-red-400 text-sm font-medium">Клиент должен оплачивать подписку и расходы на интернет.</p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-slate-900/50 p-5 rounded-xl border border-indigo-800/30">
-                <p className="font-bold text-indigo-200 mb-2"><Term>Einsatzfähigkeit / Warranty</Term> — fit for use</p>
-                <p className="text-slate-400 text-sm">КАК сервис работает? Доступность, Ёмкость, Безопасность, Непрерывность. Нужны ОБА!</p>
+
+              {/* Risks */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-orange-400 font-bold mb-2">
+                   <div className="w-2 h-8 bg-orange-500 rounded-full"></div>
+                   <span><Term>Риски / Risk</Term></span>
+                </div>
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-orange-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Сниженные</p>
+                    <p className="text-green-400 text-sm font-medium">Провайдер берет на себя бэкапы и обновления безопасности.</p>
+                  </div>
+                  <div className="bg-slate-900/80 p-4 rounded-xl border border-orange-900/20">
+                    <p className="text-slate-500 text-xs uppercase font-bold mb-1">Новые ( Внесенные )</p>
+                    <p className="text-red-400 text-sm font-medium">Зависимость от провайдера ( Vendor Lock-In ) и стабильности сети.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Value Formula: Utility & Warranty */}
+          <div id="utility-warranty" className="relative group overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-r from-indigo-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative bg-slate-800/80 border border-slate-700 p-6 lg:p-8 rounded-2xl shadow-xl">
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                <div className="flex-1 space-y-6">
+                  <h3 className="text-2xl font-black text-indigo-400 flex items-center gap-3">
+                    <Award className="w-7 h-7" /> Формула Ценности
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-slate-900/60 p-5 rounded-xl border border-indigo-500/20">
+                      <h4 className="font-bold text-indigo-300 text-lg mb-2 underline decoration-indigo-500/30 underline-offset-4"><Term>Полезность / Utility</Term></h4>
+                      <p className="text-slate-300 text-sm mb-2 italic">"Fit for purpose"</p>
+                      <p className="text-slate-400 text-sm font-medium tracking-tight">Повышает производительность ИЛИ снимает ограничения.</p>
+                      <div className="mt-3 text-[10px] font-bold text-indigo-500 uppercase tracking-widest">ЧТО сервис делает</div>
+                    </div>
+                    <div className="bg-slate-900/60 p-5 rounded-xl border border-fuchsia-500/20">
+                      <h4 className="font-bold text-fuchsia-300 text-lg mb-2 underline decoration-fuchsia-500/30 underline-offset-4"><Term>Гарантия / Warranty</Term></h4>
+                      <p className="text-slate-300 text-sm mb-2 italic">"Fit for use"</p>
+                      <p className="text-slate-400 text-sm font-medium tracking-tight">Доступность, мощность, безопасность, непрерывность.</p>
+                      <div className="mt-3 text-[10px] font-bold text-fuchsia-500 uppercase tracking-widest">КАК сервис работает</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="shrink-0 flex items-center justify-center p-8 bg-slate-900/80 rounded-3xl border border-slate-700 shadow-2xl">
+                  <div className="text-center">
+                    <div className="text-xs font-bold text-slate-500 uppercase mb-2">Итог</div>
+                    <div className="text-4xl font-black bg-linear-to-r from-indigo-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent uppercase">Ценность</div>
+                    <div className="mt-2 text-[10px] text-slate-500 italic">Utility + Warranty = Value</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

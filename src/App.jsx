@@ -28,6 +28,7 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [pendingAnchor, setPendingAnchor] = useState(null);
 
   // Module progress (localStorage)
   const [moduleProgress, setModuleProgress] = useState(() => {
@@ -82,8 +83,27 @@ export default function App() {
   // Tab change reset
   useEffect(() => {
     setQuizStarted(false); setShowResult(false); setIsReviewing(false); setAnswersHistory([]);
-    window.scrollTo(0, 0); setMobileMenuOpen(false);
-  }, [activeTab, lang]);
+    if (!pendingAnchor) window.scrollTo(0, 0); 
+    setMobileMenuOpen(false);
+  }, [activeTab, lang, pendingAnchor]);
+
+  // Handle pending anchor scroll
+  useEffect(() => {
+    if (pendingAnchor) {
+      // Small delay to ensure the DOM for the new tab has rendered
+      const timer = setTimeout(() => {
+        const element = document.getElementById(pendingAnchor);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Highlight it briefly
+          element.classList.add('ring-4', 'ring-indigo-500/50', 'ring-offset-4', 'ring-offset-slate-950');
+          setTimeout(() => element.classList.remove('ring-4', 'ring-indigo-500/50', 'ring-offset-4', 'ring-offset-slate-950'), 3000);
+        }
+        setPendingAnchor(null);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [pendingAnchor, activeTab]);
 
   const markModuleRead = useCallback((id) => {
     setModuleProgress(prev => ({ ...prev, [id]: true }));
@@ -352,6 +372,18 @@ export default function App() {
       </main>
 
       {showScrollTop && <button onClick={scrollToTop} className="fixed bottom-6 right-6 p-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-2xl z-40 transition-all hover:-translate-y-1"><ArrowUp className="w-6 h-6" /></button>}
+      
+      {/* Global Search Modal */}
+      <GlobalSearch 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)} 
+        lang={lang} 
+        contentData={c} 
+        onNavigate={(id, anchor) => {
+          setActiveTab(id);
+          if (anchor) setPendingAnchor(anchor);
+        }} 
+      />
     </div>
   );
 }
