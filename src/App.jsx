@@ -155,8 +155,15 @@ export default function App() {
         throw new Error('API Key is missing. Please add VITE_GEMINI_API_KEY to your .env file.');
       }
 
-      // Список моделей для попыток (fallback)
-      const models = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash-lite-preview-02-05'];
+      // Список моделей для попыток (fallback) - проверен через ListModels API 17.03.2026
+      const models = [
+        'gemini-2.5-flash', 
+        'gemini-2.5-flash-lite', 
+        'gemini-2.0-flash', 
+        'gemini-2.0-flash-lite',
+        'gemini-3.1-flash-lite-preview',
+        'gemini-flash-latest'
+      ];
       let lastError = null;
       let successData = null;
 
@@ -189,8 +196,9 @@ export default function App() {
 
           if (!response.ok) {
             const errData = await response.json();
-            console.warn(`Model ${modelId} failed:`, errData);
-            throw new Error(`HTTP ${response.status}: ${errData?.error?.message || 'Unknown Error'}`);
+            const errMsg = errData?.error?.message || 'Unknown Error';
+            console.warn(`Model ${modelId} failed:`, errMsg);
+            throw new Error(`Model ${modelId} -> HTTP ${response.status}: ${errMsg}`);
           }
 
           successData = await response.json();
@@ -198,7 +206,8 @@ export default function App() {
           break; // Успех! Выходим из цикла моделей
         } catch (err) {
           lastError = err;
-          // Если это не ошибка сети, а ошибка API (например 429), пробуем следующую модель
+          // Логируем ошибку и пробуем следующую модель
+          console.error(`Attempt with ${modelId} failed:`, err.message);
           continue;
         }
       }
