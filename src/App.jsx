@@ -130,7 +130,7 @@ export default function App() {
       Формат и Требования:
       - 40 уникальных вопросов. 4 варианта ответа, ровно 1 правильный.
       - Делай длину вариантов ответа (options) примерно одинаковой.
-      - Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL. Используй формулировки:
+      - Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL. Используй формулировки на немецком языке:
          * "Welche Practice ist für ... verantwortlich?"
          * "Wie lautet die Definition von ...?"
          * "Was ist das BESTE Beispiel für ...?"
@@ -144,9 +144,9 @@ export default function App() {
       - Grundbegriffe (Concepts): Value, Co-creation, Service, Utility, Warranty, Customer, User, Sponsor.
       - Leitlinien (7 Guiding Principles).
       - 4 Dimensionen (Organizations & People, Info & Tech, Partners & Suppliers, Value Streams & Processes).
-      - SVS и SVC (פעילות цепочки создания ценности).
+      - SVS и SVC (активности цепочки создания ценности).
       - Практики (Practices): ТЕСТИРУЙ ТОЛЬКО 15 ОСНОВНЫХ ПРАКТИК (Incident, Problem, Change Enablement, Service Desk, Service Request, SLA, Continual Improvement, Information Security, Relationship, Supplier, IT Asset, Service Configuration, Monitoring & Event, Release, Deployment). 
-        СТРОГО ЗАПРЕЩЕНО делать вопросы по остальным 19 второстепенным практикам (например, Architecture Management, Business Analysis, Workforce Management и т.д. - их на реальном Foundation тестируют редко или не тестируют вообще).
+        СТРОГО ЗАПРЕЩЕНО делать вопросы по остальным 19 второстепенным практикам (например, Architecture Management, Business Analysis, Workforce Management и т.д. - их на реальном Foundation тестируют редко или не заметили во время анализа).
       
       [{"q":"Текст вопроса","options":["A","B","C","D"],"correct":0,"exp":"Краткое объяснение","topic":"Тема (например, Praktiken)"}]`;
 
