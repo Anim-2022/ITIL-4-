@@ -138,7 +138,7 @@ export default function App() {
       - Обязательно используй 3 типа вопросов: 
          1. Standardfragen.
          2. Fehlendes Wort. Используй маркер "[___]" в тексте! (Пример: "Welches Grundprinzip beschäftigt sich HAUPTSÄCHLICH mit dem [___] des Konsumenten?")
-         3. Listenfragen. (Дай 4 пронумерованных утверждения в тексте вопроса, а в options комбинируй: "1 und 2", "2 und 3", "3 und 4", "1 und 4").
+         3. Listenfragen. (Дай 4 пронумерованных утверждения в ТЕКСТЕ вопроса, а в options комбинируй их. Пример 'q': "Welche der folgenden sind Teil der Dimension X?\n1. Aussage A\n2. Aussage B\n3. Aussage C\n4. Aussage D", 'options': ["1, 2 und 3", "1, 3 und 4", ...]).
 
       РАСПРЕДЕЛЕНИЕ ТЕМ И ОГРАНИЧЕНИЯ:
       - Grundbegriffe (Concepts): Value, Co-creation, Service, Utility, Warranty, Customer, User, Sponsor.
