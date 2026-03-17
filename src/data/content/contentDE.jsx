@@ -25,7 +25,7 @@ export const contentDE = {
           </ul>
         </div>
         <h3 className="font-bold text-slate-100 text-2xl mt-10">Fragetypen & Lösungsstrategien:</h3>
-        <div className="grid gap-6 w-full md:grid-cols-3">
+        <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { t: '1. Standardfragen', d: 'Eine richtige Antwort aus vier. Teste Definitionen. Achte auf Schlüsselwörter (Marker).' },
             { t: '2. Fehlendes Wort', d: 'In einer offiziellen Definition fehlt ein Begriff. Erfordert genaue Terminologie-Kenntnisse.' },
@@ -59,7 +59,7 @@ export const contentDE = {
           <div className="mt-8 mb-6"><AlignmentDiagram lang="de" /></div>
           
           <h3 id="roles" className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Rollen <Term>Servicekonsumenten</Term></h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
               <p className="text-slate-300 text-sm">Genehmigt das Budget für den IT-Service. Zahlt für die Dienstleistung.</p>
@@ -92,7 +92,7 @@ export const contentDE = {
           <div id="relationships" className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
             <h3 className="text-xl font-bold text-indigo-400 mb-4">Servicebeziehungen <Term>Service Relationships</Term></h3>
             <p className="text-slate-300 text-base mb-4">Die Interaktion zwischen Provider und Konsument umfasst 3 Teile:</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
                 <strong className="text-slate-200 block mb-2">1. Bereitstellung (Provision)</strong>
                 <span className="text-slate-400 text-sm">Aktivitäten des Providers (Management von Ressourcen, Bereitstellung von Zugang).</span>
@@ -443,7 +443,7 @@ export const contentDE = {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
                 { n: 'Planen / Plan', d: 'Sicherstellung eines gemeinsamen Verständnisses der Vision, des aktuellen Status und der Verbesserungsrichtung über alle 4 Dimensionen.', i: <Map className="w-6 h-6 text-indigo-300" />, b: 'Planung' },
                 { n: 'Verbessern / Improve', d: 'Sicherstellung der kontinuierlichen Verbesserung von Produkten, Services und Praktiken über alle Wertschöpfungsaktivitäten hinweg.', i: <TrendingUp className="w-6 h-6 text-green-400" />, b: 'Improvement' },
@@ -477,7 +477,7 @@ export const contentDE = {
       content: (
         <div className="space-y-6">
           <p className="text-slate-300 text-lg">Für diese 19 Practices wird im Foundation-Examen kein Detailwissen verlangt. Man muss lediglich das <strong>Konzept (Zweck)</strong> auf Ebene eines Satzes verstehen.</p>
-          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { t: 'Architecture Management', d: 'Erklärung der Unternehmenselemente und ihrer Beziehungen.' },
               { t: 'Business Analysis', d: 'Analyse von Business/Prozessen zur Lösungs-Empfehlung.' },
@@ -548,7 +548,7 @@ export const contentDE = {
             <div id="prac-Change" className="bg-linear-to-br from-blue-900/20 to-slate-900 border border-blue-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
               <h3 className="font-black text-blue-400 mb-3 text-xl flex items-center"><Settings className="w-6 h-6 mr-2" /> Change Enablement</h3>
               <div className="bg-blue-950/50 rounded-xl p-4 mb-5 border-l-4 border-blue-500 text-blue-100">Zweck: Maximierung erfolgreicher IT-Changes durch ordnungsgemäße <strong>Risikobewertung und Autorisierung</strong>.</div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { c: 'blue', t: '1. Standard-Change', d: 'Vorab autorisiert (pre-approved), geringes Risiko, Standardprozedur. Bsp: Festplattentausch.' },
                   { c: 'blue', t: '2. Normaler Change', d: 'Individuelle Bewertung durch Change-Autorität nötig. Bsp: Datenbankenmigration.' },

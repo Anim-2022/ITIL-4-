@@ -25,7 +25,7 @@ export const contentRU = {
           </ul>
         </div>
         <h3 className="font-bold text-slate-100 text-2xl mt-10">Типы вопросов:</h3>
-        <div className="grid gap-6 w-full md:grid-cols-3">
+        <div className="grid gap-6 w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { t: '1. Стандартные', d: 'Один правильный ответ из четырех. Ищите ключевые слова-маркеры.' },
             { t: '2. Fehlendes Wort', d: 'В официальном определении пропущено слово. Нужно точное знание терминологии.' },
@@ -61,7 +61,7 @@ export const contentRU = {
           <div className="mt-8 mb-6"><AlignmentDiagram lang="ru" /></div>
           
           <h3 id="roles" className="text-xl lg:text-2xl font-bold text-indigo-400 mb-6 mt-8">Роли в <Term>Service Relationship Management</Term></h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
               <p className="text-slate-300 text-sm">Спонсор авторизует бюджет на ИТ-услуги. Он платит за сервис.</p>
@@ -96,7 +96,7 @@ export const contentRU = {
           <div id="relationships" className="bg-linear-to-r from-slate-800/80 to-slate-900/80 rounded-2xl border border-slate-700 p-6 lg:p-8 shadow-inner">
             <h3 className="text-xl font-bold text-indigo-400 mb-4">Сервисные отношения / <Term>Service Relationships</Term></h3>
             <p className="text-slate-300 text-base mb-4">Отношения между провайдером и потребителем состоят из 3 компонентов:</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
                 <strong className="text-slate-200 block mb-2">1. Bereitstellung (Provision)</strong>
                 <span className="text-slate-400 text-sm">Действия провайдера по предоставлению сервиса (управление ресурсами, поддержка).</span>
@@ -438,7 +438,7 @@ export const contentRU = {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
                 { n: 'Планирование / Plan', d: 'Обеспечение общего понимания видения, текущего статуса и направления улучшений во всех 4 измерениях и всех продуктах.', i: <Map className="w-6 h-6 text-indigo-300" />, b: 'Ориентир' },
                 { n: 'Улучшение / Improve', d: 'Обеспечение постоянного улучшения продуктов, услуг и самих практик на всех этапах цепочки создания ценности.', i: <TrendingUp className="w-6 h-6 text-green-400" />, b: 'Оптимизация' },
@@ -472,7 +472,7 @@ export const contentRU = {
       content: (
         <div className="space-y-6">
           <p className="text-slate-300 text-lg">Эти 19 практик не требуют глубокого изучения для Foundation. Нужно лишь понимать <strong>общую концепцию</strong> (Zweck) на уровне одного предложения.</p>
-          <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { t: 'Architecture Management', d: 'Служит для понимания элементов компании и их связей.' },
               { t: 'Business Analysis', d: 'Анализ бизнеса/процессов для рекомендации решений.' },
@@ -547,7 +547,7 @@ export const contentRU = {
             <div id="prac-Change" className="bg-linear-to-br from-blue-900/20 to-slate-900 border border-blue-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
               <h3 className="font-black text-blue-400 mb-3 text-xl flex items-center"><Settings className="w-6 h-6 mr-2" /> Change Enablement</h3>
               <div className="bg-blue-950/50 rounded-xl p-4 mb-5 border-l-4 border-blue-500 text-blue-100">Цель: максимизация успешных изменений через правильную <strong>оценку рисков и авторизацию</strong>.</div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { c: 'blue', t: '1. Standard-Change', d: 'Заранее авторизованы (vorab autorisiert), низкий риск, чёткая инструкция. Пример: замена жёсткого диска.' },
                   { c: 'blue', t: '2. Normaler Change', d: 'Требуют индивидуальной оценки и согласования Change-Autorität. Пример: миграция почты в облако.' },

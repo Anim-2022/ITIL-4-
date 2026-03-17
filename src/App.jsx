@@ -286,10 +286,10 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row font-sans text-slate-200 w-full overflow-x-hidden selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-slate-950 flex flex-col lg:flex-row font-sans text-slate-200 w-full overflow-x-hidden selection:bg-indigo-500/30">
       
       {/* Mobile header */}
-      <div className="md:hidden bg-slate-900/95 border-b border-slate-800 flex items-center justify-between px-4 py-3 sticky top-0 z-30 shadow-md">
+      <div className="lg:hidden bg-slate-900/95 border-b border-slate-800 flex items-center justify-between px-4 py-3 sticky top-0 z-30 shadow-md">
         <div><h1 className="text-xl font-black text-slate-100">ITIL 4 <span className="text-indigo-500">Prep</span></h1></div>
         <div className="flex items-center gap-2">
           <div className="flex bg-slate-800 p-1 rounded-lg">
@@ -304,9 +304,9 @@ export default function App() {
       </div>
 
       {/* Sidebar */}
-      <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} md:block w-full md:w-72 shrink-0 z-20 md:h-screen md:sticky md:top-0 border-b md:border-b-0 md:border-r border-slate-800 bg-slate-900/95 shadow-2xl overflow-y-auto`}>
+      <nav className={`${mobileMenuOpen ? 'block' : 'hidden'} lg:block w-full lg:w-72 shrink-0 z-20 lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-slate-800 bg-slate-900/95 shadow-2xl overflow-y-auto`}>
         <div className="flex flex-col min-h-full pb-32">
-          <div className="hidden md:block p-6 md:p-8 shrink-0">
+          <div className="hidden lg:block p-6 lg:p-8 shrink-0">
             <h1 className="text-3xl font-black text-slate-100">ITIL 4 <span className="text-indigo-500">Prep</span></h1>
             <p className="text-xs text-slate-500 mt-1 font-bold tracking-widest uppercase">Peoplecert Exam</p>
             <div className="mt-5 flex bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
@@ -339,7 +339,7 @@ export default function App() {
       </nav>
 
       {/* Main content */}
-      <main className="flex-1 p-5 md:p-10 lg:p-14 xl:p-16 w-full overflow-x-hidden flex justify-center items-start">
+      <main className="flex-1 p-5 md:p-8 lg:p-10 xl:p-16 w-full overflow-x-hidden flex justify-center items-start">
         {activeTab === 'exam_tips' && (
           <div className="animate-in fade-in w-full max-w-7xl mx-auto flex flex-col xl:flex-row gap-8">
             <div className="flex-1"><h2 className="text-3xl md:text-4xl font-black text-slate-100 mb-8 flex items-center gap-4"><span className="bg-indigo-900/40 p-3 rounded-2xl mr-5 border border-indigo-700/50">{c.examTips.icon}</span>{c.examTips.title}</h2>{c.examTips.content}</div>
