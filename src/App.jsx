@@ -142,9 +142,12 @@ export default function App() {
       1. Если вопрос содержит список утверждений (Listenfragen), используй двойной перенос строки перед списком и нумерованный список с четкими отступами.
          ПРИМЕР ТЕКСТА: "Welche der folgenden sind Vorteile von X?\\n\\n1. Vorteil A\\n2. Vorteil B\\n3. Vorteil C\\n4. Vorteil D"
       2. Все пояснения (exp) должны быть четкими и помогать понять, ПОЧЕМУ ответ верный.
-      3. Варианты ответов (options) должны быть сопоставимы по длине и сложности.
+      3. ВИЗУАЛЬНЫЙ БАЛАНС: Все 4 варианта (options) должны иметь похожую длину, структуру и степень детализации. Правильный ответ НЕ должен выделяться длиной или сложностью.
+      4. РАНДОМИЗАЦИЯ: Равномерно распределяй правильный ответ (index 0-3) по всем 40 вопросам. Избегай повторения одной и той же позиции (например, "B, B, B") более 2 раз подряд.
 
-      Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL. Используй формулировки на немецком языке:
+      Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL Foundation (уровень сложности: Challenging). 
+      - Используй больше СИТУАЦИОННЫХ ЗАДАЧ (Scenario-based): "Ein Unternehmen möchte X erreichen... Was ist der erste Schritt laut Y?".
+      - Создавай "правдоподобные" дистракторы (неправильные ответы), которые звучат логично, но неверны по ITIL.
          * "Welche Practice ist für ... verantwortlich?"
          * "Wie lautet die Definition von ...?"
          * "Was ist das BESTE Beispiel für ...?"
@@ -173,9 +176,10 @@ export default function App() {
 
       // Список моделей для попыток (fallback) - проверен через ListModels API 17.03.2026
       const models = [
+        'gemini-1.5-pro-latest', 
+        'gemini-2.0-flash', 
         'gemini-2.5-flash', 
         'gemini-2.5-flash-lite', 
-        'gemini-2.0-flash', 
         'gemini-2.0-flash-lite',
         'gemini-3.1-flash-lite-preview',
         'gemini-flash-latest'
