@@ -127,10 +127,24 @@ export default function App() {
       const prompt = `Сгенерируй профессиональный мок-экзамен на 40 вопросов для подготовки к ITIL 4 Foundation, строго следуя стилю официальных экзаменов PeopleCert. 
       ВАЖНО: Весь контент (вопросы, ответы, объяснения) должен быть НА НЕМЕЦКОМ ЯЗЫКЕ. Специфичные ITIL термины (названия практик, Utility, Warranty, Value, Guiding Principles, Change Enablement, Service Desk, CI и т.д.) оставляй СТРОГО НА АНГЛИЙСКОМ ЯЗЫКЕ.
       
-      Формат и Требования:
-      - 40 уникальных вопросов. 4 варианта ответа, ровно 1 правильный.
-      - Делай длину вариантов ответа (options) примерно одинаковой.
-      - Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL. Используй формулировки на немецком языке:
+      ФОРМАТ ОБЯЗАТЕЛЕН (JSON-объект):
+      [
+        {
+          "q": "Текст вопроса с правильными отступами и \\n для списков",
+          "options": ["A", "B", "C", "D"],
+          "correct": 0,
+          "exp": "Объяснение на немецком",
+          "topic": "Тема"
+        }
+      ]
+
+      ПРАВИЛА ФОРМАТИРОВАНИЯ ВОПРОСОВ:
+      1. Если вопрос содержит список утверждений (Listenfragen), используй двойной перенос строки перед списком и нумерованный список с четкими отступами.
+         ПРИМЕР ТЕКСТА: "Welche der folgenden sind Vorteile von X?\\n\\n1. Vorteil A\\n2. Vorteil B\\n3. Vorteil C\\n4. Vorteil D"
+      2. Все пояснения (exp) должны быть четкими и помогать понять, ПОЧЕМУ ответ верный.
+      3. Варианты ответов (options) должны быть сопоставимы по длине и сложности.
+
+      Стиль вопросов ДОЛЖЕН копировать реальные экзамены ITIL. Используй формулировки на немецком языке:
          * "Welche Practice ist für ... verantwortlich?"
          * "Wie lautet die Definition von ...?"
          * "Was ist das BESTE Beispiel für ...?"
@@ -140,15 +154,17 @@ export default function App() {
          2. Fehlendes Wort. Используй маркер "[___]" в тексте! (Пример: "Welches Grundprinzip beschäftigt sich HAUPTSÄCHLICH mit dem [___] des Konsumenten?")
          3. Listenfragen. (Дай 4 пронумерованных утверждения в ТЕКСТЕ вопроса, а в options комбинируй их. Пример 'q': "Welche der folgenden sind Teil der Dimension X?\n1. Aussage A\n2. Aussage B\n3. Aussage C\n4. Aussage D", 'options': ["1, 2 und 3", "1, 3 und 4", ...]).
 
-      РАСПРЕДЕЛЕНИЕ ТЕМ И ОГРАНИЧЕНИЯ:
-      - Grundbegriffe (Concepts): Value, Co-creation, Service, Utility, Warranty, Customer, User, Sponsor.
-      - Leitlinien (7 Guiding Principles).
-      - 4 Dimensionen (Organizations & People, Info & Tech, Partners & Suppliers, Value Streams & Processes).
-      - SVS и SVC (активности цепочки создания ценности).
-      - Практики (Practices): ТЕСТИРУЙ ТОЛЬКО 15 ОСНОВНЫХ ПРАКТИК (Incident, Problem, Change Enablement, Service Desk, Service Request, SLA, Continual Improvement, Information Security, Relationship, Supplier, IT Asset, Service Configuration, Monitoring & Event, Release, Deployment). 
-        СТРОГО ЗАПРЕЩЕНО делать вопросы по остальным 19 второстепенным практикам (например, Architecture Management, Business Analysis, Workforce Management и т.д. - их на реальном Foundation тестируют редко или не заметили во время анализа).
+      РАСПРЕДЕЛЕНИЕ ТЕМ (ОБЯЗАТЕЛЬНО ВСЕ):
+      - Kernbegriffe (7-8 вопросов): Value (Co-creation), Service Relationship, Utility & Warranty, Customer/User/Sponsor, Output vs Outcome, Kosten & Risiken, Service Management.
+      - 7 Guiding Principles (5-6 вопросов): По каждому принципу отдельно (от Focus on Value до Optimize & Automate).
+      - 4 Dimensionen (4-5 вопросов): Organizations & People, Information & Technology, Partners & Suppliers, Value Streams & Processes.
+      - SVS и SVC (4-5 вопросов): Сфокусируйся на цепочке создания ценности (SVC) и её активностях (Plan, Improve, Engage, Design & Transition, Obtain/Build, Deliver & Support).
+      - Практики (15-18 вопросов): СТРОГО ТЕСТИРУЙ ТОЛЬКО 15 ОСНОВНЫХ ПРАКТИК (Incident, Problem, Change Enablement, Service Desk, Service Request, SLA, Continual Improvement, Information Security, Relationship, Supplier, IT Asset, Service Configuration, Monitoring & Event, Release, Deployment). Используй терминологию и определения из глоссария.
       
-      [{"q":"Текст вопроса","options":["A","B","C","D"],"correct":0,"exp":"Краткое объяснение","topic":"Тема (например, Praktiken)"}]`;
+      ЗАПРЕЩЕНО:
+      - Использовать другие 19 практик (Architecture, Business Analysis, и т.д.).
+      - Писать вопросы на русском или английском (кроме специальных терминов).
+      - Ошибаться в правильном ответе (correct: 0-3 index).`;
 
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       if (!apiKey) {

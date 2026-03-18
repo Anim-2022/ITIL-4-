@@ -62,7 +62,7 @@ export const contentRU = {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-indigo-900/20 border border-indigo-500/30 p-4 rounded-xl">
                 <h4 className="font-bold text-indigo-300 text-sm mb-1">Service Management</h4>
-                <p className="text-slate-400 text-xs leading-relaxed">Набор специализированных организационных способностей для обеспечения ценности для клиентов в форме услуг.</p>
+                <p className="text-slate-400 text-xs leading-relaxed">Eine Reihe spezialisierter organisatorischer Fähigkeiten zur Generierung eines Mehrwerts für Kunden in Form von Services.</p>
               </div>
               <div className="bg-purple-900/20 border border-purple-500/30 p-4 rounded-xl">
                 <h4 className="font-bold text-purple-300 text-sm mb-1">ITSM</h4>
@@ -76,15 +76,15 @@ export const contentRU = {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
-              <p className="text-slate-300 text-sm">Спонсор авторизует бюджет на ИТ-услуги. Он платит за сервис.</p>
+              <p className="text-slate-300 text-sm">Eine Person, die das Budget für den Servicekonsum genehmigt. (Genehmigt die Finanzierung).</p>
             </div>
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Users className="w-6 h-6" /> <span className="font-bold text-lg">Kunde (Клиент)</span></div>
-              <p className="text-slate-300 text-sm">Клиент определяет требования к сервису и несет ответственность за результаты его потребления (Outcome).</p>
+              <p className="text-slate-300 text-sm">Eine Person, die die Anforderungen an einen Service definiert und die Verantwortung für die Ergebnisse übernimmt.</p>
             </div>
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Headset className="w-6 h-6" /> <span className="font-bold text-lg">Anwender (Пользователь)</span></div>
-              <p className="text-slate-300 text-sm">Пользователь (User) использует ИТ-услуги на ежедневной основе в операционной деятельности.</p>
+              <p className="text-slate-300 text-sm">Eine Person, die Services einsetzt (Nutzt den Service täglich).</p>
             </div>
           </div>
 
@@ -110,16 +110,16 @@ export const contentRU = {
             <p className="text-slate-300 text-base mb-4">Для создания ценности провайдер и потребитель вступают в <strong>отношения</strong>. Это не просто покупка, а постоянный цикл:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
-                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">1. Provision (Поставка)</strong>
-                <span className="text-slate-400 text-sm">Действия провайдера: управление ресурсами, доступ к товарам, выполнение действий, поддержка.</span>
+                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">1. Provision (Bereitstellung)</strong>
+                <span className="text-slate-400 text-sm">Aktivitäten, die von einer Organisation zur Bereitstellung von Services durchgeführt werden (Ressourcenmanagement, Zugriffsbereitstellung).</span>
               </div>
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
-                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">2. Consumption (Потребление)</strong>
-                <span className="text-slate-400 text-sm">Действия потребителя: управление ресурсами пользователя, использование товаров, получение действий.</span>
+                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">2. Consumption (Konsum)</strong>
+                <span className="text-slate-400 text-sm">Aktivitäten, die von einer Organisation zur Nutzung von Services durchgeführt werden (Ressourcenmanagement, Nutzung von Gütern).</span>
               </div>
               <div className="bg-slate-800 p-4 rounded-xl border border-slate-600">
-                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">3. Relationship Management</strong>
-                <span className="text-slate-400 text-sm">Совместные действия (<Term>Co-creation</Term>) для обеспечения постоянной актуальности и ценности сервиса.</span>
+                <strong className="text-indigo-300 block mb-2 underline decoration-indigo-500/30 underline-offset-4">3. Beziehungsmanagement</strong>
+                <span className="text-slate-400 text-sm">Gemeinsame Aktivitäten von Service Provider und Servicekonsument zur kontinuierlichen gemeinsamen Wertschöpfung.</span>
               </div>
             </div>
           </div>
@@ -138,19 +138,19 @@ export const contentRU = {
               
               <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
                 <div className="text-fuchsia-400 font-black text-xs uppercase tracking-widest mb-2">Осязаемый результат</div>
-                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Изделие / Output</Term></h4>
-                <p className="text-slate-400 text-sm mb-4 italic">Материальный или нематериальный артефакт, созданный в результате деятельности.</p>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Ausgabe / Output</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Ein materieller oder immaterieller Liefergegenstand einer Aktivität.</p>
                 <div className="bg-slate-800/50 p-3 rounded-lg border border-slate-700 text-slate-300 text-sm">
-                  <strong>Пример:</strong> Установленный почтовый сервер или завершенный тренинг.
+                  <strong>Beispiel:</strong> Installierter Mailserver oder abgeschlossenes Training.
                 </div>
               </div>
 
               <div className="bg-linear-to-br from-indigo-900/40 to-slate-900/60 p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 transition-colors">
                 <div className="text-indigo-400 font-black text-xs uppercase tracking-widest mb-2">Желаемый эффект</div>
-                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Результат / Outcome</Term></h4>
-                <p className="text-slate-400 text-sm mb-4 italic">Результат для заинтересованной стороны, поддерживаемый одним или несколькими Output.</p>
+                <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Ergebnis / Outcome</Term></h4>
+                <p className="text-slate-400 text-sm mb-4 italic">Ein Resultat für einen Stakeholder, das durch einen oder mehrere Outputs ermöglicht wird.</p>
                 <div className="bg-indigo-600/20 p-3 rounded-lg border border-indigo-500/30 text-indigo-200 text-sm">
-                  <strong>Пример:</strong> Сотрудники могут эффективно и быстро общаться.
+                  <strong>Beispiel:</strong> Mitarbeiter können effektiv und schnell kommunizieren.
                 </div>
               </div>
             </div>
@@ -256,8 +256,8 @@ export const contentRU = {
                 icon: <Target className="w-8 h-8 text-emerald-400" />,
                 bg: "from-emerald-600/20 to-emerald-900/10",
                 border: "border-emerald-500/30",
-                d: "Все действия должны прямо или косвенно приносить ценность стейкхолдерам.", 
-                tip: "Кто потребитель сервиса? Что для него ценно? (UX, функционал, цена)." 
+                d: "Alle Aktivitäten sollten direkt oder indirekt zur Wertschöpfung beitragen.", 
+                tip: "Jede Aktion muss direkt oder indirekt Wert für Stakeholder schaffen. Wer ist der Konsument? Was ist wertvoll?" 
               },
               { 
                 t: "Dort beginnen, wo man steht", 
@@ -265,8 +265,8 @@ export const contentRU = {
                 icon: <Map className="w-8 h-8 text-blue-400" />,
                 bg: "from-blue-600/20 to-blue-900/10",
                 border: "border-blue-500/30",
-                d: "Не стройте всё с нуля! Оцените текущее состояние и сохраните то, что работает хорошо.", 
-                tip: "Используйте базовые измерения (Baseline). Наблюдайте лично (Direct Observation), а не верьте только отчетам." 
+                d: "Bestehende Ressourcen analysieren und nutzen, statt bei Null anzufangen.", 
+                tip: "Vermeidung von unnötiger Arbeit durch Wiederverwendung bewährter Elemente. Nutzung der Baseline-Messung." 
               },
               { 
                 t: "Iterative Weiterentwicklung", 
@@ -274,8 +274,8 @@ export const contentRU = {
                 icon: <RefreshCw className="w-8 h-8 text-indigo-400" />,
                 bg: "from-indigo-600/20 to-indigo-900/10",
                 border: "border-indigo-500/30",
-                d: "Разбивайте большие задачи на мелкие итерации и постоянно собирайте обратную связь.", 
-                tip: "Петли обратной связи критически важны. Agile-подход вместо жесткого планирования 'Waterfall'." 
+                d: "Kleine Schritte mit Feedback-Schleifen statt starrer Großprojekte.", 
+                tip: "Feedback-Schleifen sind essenziell zur Überprüfung der Richtung und Qualität." 
               },
               { 
                 t: "Zusammenarbeit fördern", 
@@ -283,8 +283,8 @@ export const contentRU = {
                 icon: <Users className="w-8 h-8 text-cyan-400" />,
                 bg: "from-cyan-600/20 to-cyan-900/10",
                 border: "border-cyan-500/30",
-                d: "Разрушайте силосы! Сделайте информацию и работу видимой для всей команды.", 
-                tip: "Используйте Stakeholder Mapping. Прозрачность предотвращает недоверие и двойную работу." 
+                d: "Silos aufbrechen, Transparenz schaffen und Stakeholder aktiv einbinden.", 
+                tip: "Information und Arbeit im gesamten Team sichtbar machen. Gemeinsame Ziele verfolgen." 
               },
               { 
                 t: "Ganzheitlich denken", 
@@ -292,8 +292,8 @@ export const contentRU = {
                 icon: <Layers className="w-8 h-8 text-purple-400" />,
                 bg: "from-purple-600/20 to-purple-900/10",
                 border: "border-purple-500/30",
-                d: "Ни один процесс не изолирован. Всегда учитывайте все 4 измерения.", 
-                tip: "Ошибка в одной маленькой части может парализовать всю систему (SVS)." 
+                d: "Zusammenwirken aller Teile und der 4 Dimensionen berücksichtigen.", 
+                tip: "Kein Prozess ist isoliert. Berücksichtige immer alle 4 Dimensionen des Service Management." 
               },
               { 
                 t: "Einfach & Praktisch halten", 
@@ -301,8 +301,8 @@ export const contentRU = {
                 icon: <Zap className="w-8 h-8 text-orange-400" />,
                 bg: "from-orange-600/20 to-orange-900/10",
                 border: "border-orange-500/30",
-                d: "Процессы с минимальным количеством шагов. Устраняйте всё, что не создает ценности.", 
-                tip: "Mindset: Minimum Viable Product (MVP). Если шаг не приносит пользы — долой его! (Фокус на исходе/Outcome)." 
+                d: "Prozesse mit minimaler Schrittanzahl. Alles eliminieren, was keinen Wert schafft.", 
+                tip: "Fokus auf Outcome. Nur notwendige Komplexität beibehalten (Minimum Viable Product Fokus)." 
               },
               { 
                 t: "Optimieren & Automatisieren", 
@@ -310,8 +310,8 @@ export const contentRU = {
                 icon: <Settings className="w-8 h-8 text-fuchsia-400" />,
                 bg: "from-fuchsia-600/20 to-fuchsia-900/10",
                 border: "border-fuchsia-500/30",
-                d: "Человеческий труд — для творческих задач, IT — для повторяющейся рутины.", 
-                tip: "ЭКЗАМЕНАЦИОННАЯ ЛОВУШКА: Сначала оптимизация, затем автоматизация. Автоматизированный хаос — это всё еще хаос." 
+                d: "Menschliche Arbeit für komplexe Aufgaben, IT für repetitive Routinen.", 
+                tip: "ERST optimieren (den Prozess verbessern), DANN so weit wie möglich automatisieren." 
               },
             ].map((p, i) => (
               <div key={i} className={`flex p-6 bg-slate-800/60 border border-slate-700 rounded-2xl ${i === 6 ? 'xl:col-span-2 xl:max-w-3xl xl:mx-auto' : ''}`}>
@@ -337,10 +337,10 @@ export const contentRU = {
           <p className="text-slate-300 text-lg">Для стабильной работы услуги менеджер должен сбалансированно развивать 4 измерения <Term>Vier Dimensionen</Term>.</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {[
-              { color: 'border-green-500', t: '1. Organisationen und Menschen', en: 'Organizations and People', q: 'КТО делает работу?', pts: ['Понятные роли и ответственность', 'Общие ценности, доверие, прозрачность', 'Компетенции и обучение'] },
-              { color: 'border-blue-500', t: '2. Informationen und Technologie', en: 'Information and Technology', q: 'С ПОМОЩЬЮ ЧЕГО?', pts: ['Системы управления инцидентами, базы знаний', 'Информационная безопасность (GDPR)', 'Совместимость систем'] },
-              { color: 'border-purple-500', t: '3. Partner und Lieferanten', en: 'Partners and Suppliers', q: 'КТО ПОМОГАЕТ извне?', pts: ['Контракты с провайдерами интернета, облачными сервисами', 'Стратегия: "из коробки" vs совместная разработка'] },
-              { color: 'border-orange-500', t: '4. Wertströme und Prozesse', en: 'Value Streams and Processes', q: 'КАК всё объединяется?', pts: ['Поток ценности: путь от запроса до результата', 'Процессы: входы → выходы, устранение Bottlenecks'] },
+              { color: 'border-green-500', t: '1. Organisationen und Menschen', en: 'Organizations and People', q: 'WER macht die Arbeit?', pts: ['Klare Rollen und Verantwortlichkeiten', 'Gemeinsame Werte, Vertrauen, Transparenz', 'Kompetenzen und kontinuierliche Schulung'] },
+              { color: 'border-blue-500', t: '2. Informationen und Technologie', en: 'Information and Technology', q: 'WOMIT wird es erledigt?', pts: ['ITSM-Tools, Wissensdatenbanken, Cloud', 'Informationssicherheit und Datenschutz (GDPR)', 'Kompatibilität alter und neuer Systeme'] },
+              { color: 'border-purple-500', t: '3. Partner und Lieferanten', en: 'Partners and Suppliers', q: 'WER HILFT von außen?', pts: ['Verträge mit Cloud-Anbietern (AWS, Azure)', 'Von einfacher Beschaffung bis zu tiefen Partnerschaften'] },
+              { color: 'border-orange-500', t: '4. Wertströme und Prozesse', en: 'Value Streams and Processes', q: 'WIE greift alles ineinander?', pts: ['Wertstrom: End-to-End vom Kundenwunsch bis zur Lieferung', 'Prozesse: Inputs → Outputs, Bottlenecks beseitigen'] },
             ].map((d, i) => (
               <div key={i} className={`border-t-4 ${d.color} bg-slate-800/60 p-6 rounded-2xl`}>
                 <h4 className="font-bold text-lg text-slate-100 mb-1">{d.t}</h4>
@@ -389,8 +389,8 @@ export const contentRU = {
           <div id="svs" className="bg-slate-800/60 p-6 lg:p-10 rounded-3xl border border-slate-700 shadow-xl overflow-hidden relative">
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
             
-            <h3 className="font-black text-3xl text-slate-100 mb-2 relative z-10">Система создания ценности (SVS)</h3>
-            <p className="text-slate-300 text-lg mb-10 max-w-2xl relative z-10"><Term>SVS (Service Value System)</Term> описывает, как все компоненты и виды деятельности организации работают вместе, как единая система, для обеспечения создания ценности.</p>
+            <h3 className="font-black text-3xl text-slate-100 mb-2 relative z-10">Service-Wertschöpfungssystem (SVS)</h3>
+            <p className="text-slate-300 text-lg mb-10 max-w-2xl relative z-10"><Term>SVS</Term> beschreibt, wie alle Komponenten und Aktivitäten der Organisation zusammenwirken, um die Wertschöpfung zu ermöglichen.</p>
             
             {/* The SVS Flow */}
             <div className="flex flex-col lg:flex-row items-stretch gap-4 relative z-10">
@@ -445,15 +445,15 @@ export const contentRU = {
                 <div className="w-16 h-16 bg-linear-to-br from-fuchsia-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg ring-4 ring-fuchsia-500/20 group-hover:scale-110 transition-transform">
                   <Award className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-fuchsia-400 font-bold uppercase tracking-widest text-xs mb-1">Выход (Output)</div>
-                <div className="font-black text-slate-200 text-sm mb-1 uppercase tracking-tight">Продукты & Услуги</div>
-                <div className="font-black text-transparent bg-clip-text bg-linear-to-r from-slate-100 to-slate-400 text-2xl">ЦЕННОСТЬ</div>
+                <div className="text-fuchsia-400 font-bold uppercase tracking-widest text-xs mb-1">Ausgabe (Output)</div>
+                <div className="font-black text-slate-200 text-sm mb-1 uppercase tracking-tight">Produkte & Services</div>
+                <div className="font-black text-transparent bg-clip-text bg-linear-to-r from-slate-100 to-slate-400 text-2xl">WERT</div>
                 <div className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-widest">Value</div>
               </div>
             </div>
             {/* Diagram */}
             <div className="mt-8 pt-8 border-t border-slate-700/50 hidden lg:block">
-               <p className="text-slate-500 text-xs font-bold uppercase mb-4 text-center tracking-widest">Официальная схема ITIL 4 (SVS)</p>
+               <p className="text-slate-500 text-xs font-bold uppercase mb-4 text-center tracking-widest">Offizielles ITIL 4 Schema (SVS)</p>
                <SVSDiagram lang="ru" />
             </div>
           </div>
@@ -461,14 +461,14 @@ export const contentRU = {
           {/* Service Value Chain (SVC) */}
           <div id="svc" className="bg-linear-to-br from-slate-900 to-indigo-950/40 p-6 lg:p-10 rounded-3xl border border-indigo-900/50 shadow-2xl relative overflow-hidden">
             <h3 className="font-black text-3xl text-indigo-300 mb-6 flex items-center gap-3">
-              <Activity className="w-8 h-8 text-fuchsia-500" /> Цепочка создания ценности (SVC)
+              <Activity className="w-8 h-8 text-fuchsia-500" /> Service-Wertschöpfungskette (SVC)
             </h3>
             
             <div className="bg-red-950/40 border border-red-900/60 p-5 rounded-2xl mb-8 flex items-start gap-4 shadow-inner">
               <AlertCircle className="w-6 h-6 text-red-500 shrink-0 mt-0.5" />
               <div>
-                <strong className="text-red-400 block mb-1 text-lg">Экзаменационная ловушка: SVC НЕ является линейной!</strong>
-                <p className="text-red-200/80 text-sm leading-relaxed">На экзамене Foundation часто пытаются представить SVC как строгий процесс или жизненный цикл (шаг 1, затем шаг 2 и т.д.). Это <strong>ГРУБАЯ ОШИБКА</strong>. Практики могут использовать любую активность SVC в любое время и в любом порядке. Это гибкая операционная модель системы, а не водопадный конвейер.</p>
+                <strong className="text-red-400 block mb-1 text-lg">Prüfungsfalle: SVC ist NICHT linear!</strong>
+                <p className="text-red-200/80 text-sm leading-relaxed">In der Foundation-Prüfung wird oft versucht, die SVC als einen strengen Prozess oder Lebenszyklus darzustellen (Schritt 1, dann Schritt 2 usw.). Das ist ein <strong>GROBER FEHLER</strong>. Praktiken können jede SVC-Aktivität jederzeit und in beliebiger Reihenfolge nutzen. Es ist ein flexibles operatives Modell des Systems, kein Wasserfall-Fließband.</p>
               </div>
             </div>
 
@@ -652,39 +652,39 @@ export const contentRU = {
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
             <div id="prac-Incident" className="bg-linear-to-br from-red-900/20 to-slate-900 border border-red-800/40 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-red-400 mb-3 text-xl flex items-center"><AlertCircle className="w-6 h-6 mr-2" /> Incident Management</h3>
-              <div className="bg-red-950/50 rounded-xl p-4 mb-4 border-l-4 border-red-500 text-red-100">Цель: <strong>Максимально быстрое восстановление нормальной работы</strong> <Term>Wiederherstellung des normalen Servicebetriebs</Term>.</div>
+              <div className="bg-red-950/50 rounded-xl p-4 mb-4 border-l-4 border-red-500 text-red-100">Zweck: <strong>Maximale Schnelligkeit bei der Wiederherstellung des normalen Servicebetriebs</strong>.</div>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• <strong className="text-red-200">Инцидент:</strong> любое незапланированное прерывание или снижение качества.</li>
-                <li>• Все инциденты должны быть зарегистрированы (<Term>Incident Record</Term>) и классифицированы.</li>
-                <li>• Приоритет: по Impact (влияние) × Urgency (срочность).</li>
-                <li>• <strong className="text-red-200">Major Incidents:</strong> требуют отдельной процедуры и быстрой мобилизации ресурсов.</li>
-                <li>• <strong className="text-red-200">Swarming:</strong> специалисты разных уровней работают вместе вместо эскалации.</li>
+                <li>• <strong className="text-red-200">Incident:</strong> Jede ungeplante Unterbrechung oder Qualitätsminderung eines Services.</li>
+                <li>• Alle Incidents müssen erfasst (<Term>Incident Record</Term>) und klassifiziert werden.</li>
+                <li>• Priorisierung: Nach Impact (Auswirkung) × Urgency (Dringlichkeit).</li>
+                <li>• <strong className="text-red-200">Major Incidents:</strong> Erfordern ein separates Verfahren und schnelle Ressourcen-Mobilisierung.</li>
+                <li>• <strong className="text-red-200">Swarming:</strong> Experten verschiedener Ebenen arbeiten direkt zusammen (statt klassischer Eskalation).</li>
               </ul>
             </div>
             <div id="prac-Problem" className="bg-linear-to-br from-orange-900/20 to-slate-900 border border-orange-800/40 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-orange-400 mb-3 text-xl flex items-center"><HelpCircle className="w-6 h-6 mr-2" /> Problem Management</h3>
-              <div className="bg-orange-950/50 rounded-xl p-4 mb-4 border-l-4 border-orange-500 text-orange-100">Цель: выявление <strong>корневых причин</strong> <Term>Grundursachen</Term> и управление Workarounds.</div>
+              <div className="bg-orange-950/50 rounded-xl p-4 mb-4 border-l-4 border-orange-500 text-orange-100">Zweck: Identifizierung von <strong>Grundursachen</strong> <Term>Root Cause</Term> und Management von Workarounds.</div>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• Инцидент = "пожар" (тушить сейчас). Проблема = поиск "поджигателя".</li>
-                <li>• <strong>Workaround:</strong> временное решение до постоянного исправления.</li>
-                <li>• <strong>KEDB:</strong> база известных ошибок (<Term>Known Errors</Term>) для быстрого поиска обходных путей.</li>
-                <li>• <strong className="text-orange-200 text-xs uppercase font-bold block mt-2">3 фазы PM:</strong></li>
-                <li className="pl-2">1. <Term>Problem Identification</Term>: поиск трендов и повторяющихся инцидентов.</li>
-                <li className="pl-2">2. <Term>Problem Control</Term>: анализ корневых причин и поиск Workarounds.</li>
-                <li className="pl-2">3. <Term>Error Control</Term>: управление постоянными исправлениями.</li>
+                <li>• Incident = "Feuer" (jetzt löschen). Problem = Suche nach dem "Brandstifter".</li>
+                <li>• <strong>Workaround:</strong> Temporäre Lösung, bis der Fehler dauerhaft behoben ist.</li>
+                <li>• <strong>KEDB:</strong> Known Error Database (<Term>Known Errors</Term>) für die schnelle Suche nach Workarounds.</li>
+                <li>• <strong className="text-orange-200 text-xs uppercase font-bold block mt-2">3 Phasen PM:</strong></li>
+                <li className="pl-2">1. <Term>Problem Identification</Term>: Trendanalysen & wiederkehrende Incidents.</li>
+                <li className="pl-2">2. <Term>Problem Control</Term>: Root Cause Analysis & Workarounds.</li>
+                <li className="pl-2">3. <Term>Error Control</Term>: Management von permanenten Lösungen.</li>
               </ul>
             </div>
             <div id="prac-Change" className="bg-linear-to-br from-blue-900/20 to-slate-900 border border-blue-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
               <h3 className="font-black text-blue-400 mb-3 text-xl flex items-center"><Settings className="w-6 h-6 mr-2" /> Change Enablement</h3>
-              <div className="bg-blue-950/50 rounded-xl p-4 mb-3 border-l-4 border-blue-500 text-blue-100 italic text-xs">Цель: максимизация успешных изменений через правильную <strong>оценку рисков и авторизацию</strong>.</div>
+              <div className="bg-blue-950/50 rounded-xl p-4 mb-3 border-l-4 border-blue-500 text-blue-100 italic text-xs">Zweck: Maximierung erfolgreicher Changes durch korrekte <strong>Risikobewertung und Autorisierung</strong>.</div>
               <div className="bg-slate-900/60 p-3 rounded-xl border border-blue-900/30 mb-4 text-xs">
-                <strong className="text-blue-300">Change Authority:</strong> человек или группа, ответственная за авторизацию изменений. Для каждого типа изменений должен быть свой уровень авторизации.
+                <strong className="text-blue-300">Change Authority:</strong> Person oder Gruppe, die Changes autorisiert. Jede Change-Art braucht die passende Instanz.
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { c: 'blue', t: '1. Standard-Change', d: 'Заранее авторизованы (vorab autorisiert), низкий риск, чёткая инструкция. Пример: замена жёсткого диска.' },
-                  { c: 'blue', t: '2. Normaler Change', d: 'Требуют индивидуальной оценки и согласования Change-Autorität. Пример: миграция почты в облако.' },
-                  { c: 'red', t: '3. Notfall (Emergency)', d: 'Экстренные изменения, процедура ускоряется, но НЕ отменяется! Пример: патч при хакерской атаке.' },
+                  { c: 'blue', t: '1. Standard-Change', d: 'Vorab autorisiert (pre-approved), geringes Risiko, Standardprozedur. Bsp: Festplattentausch.' },
+                  { c: 'blue', t: '2. Normaler Change', d: 'Individuelle Bewertung durch Change-Autorität nötig. Bsp: Datenbankenmigration.' },
+                  { c: 'red', t: '3. Notfall (Emergency)', d: 'Dringende Implementierung! Prozess wird beschleunigt, aber NICHT übersprungen. Bsp: Sicherheitspatch.' },
                 ].map((t, i) => (
                   <div key={i} className={`bg-slate-800/80 p-4 rounded-xl border ${t.c === 'red' ? 'border-red-900/50' : 'border-blue-900/50'}`}>
                     <strong className={`block mb-2 ${t.c === 'red' ? 'text-red-400' : 'text-blue-400'}`}>{t.t}</strong>
@@ -695,37 +695,37 @@ export const contentRU = {
             </div>
             <div id="prac-Service Desk" className="bg-linear-to-br from-green-900/20 to-slate-900 border border-green-800/40 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-green-400 mb-3 text-xl flex items-center"><Shield className="w-6 h-6 mr-2" /> Service Desk</h3>
-              <div className="bg-green-950/50 rounded-xl p-4 mb-4 border-l-4 border-green-500 text-green-100">Цель: <strong>единая точка контакта</strong> <Term>Einziger Kontaktpunkt / SPOC</Term> для всех пользователей.</div>
+              <div className="bg-green-950/50 rounded-xl p-4 mb-4 border-l-4 border-green-500 text-green-100">Zweck: <strong>Einziger Kontaktpunkt</strong> <Term>Single Point of Contact / SPOC</Term> für alle Nutzer.</div>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• Service Desk — это лицо всего ИТ для пользователей.</li>
-                <li>• <strong>Критично:</strong> Эмпатия и эмоциональный интеллект важнее глубоких техзнаний!</li>
+                <li>• Für Nutzer ist der Service Desk "die IT" — prägt das User Experience.</li>
+                <li>• <strong>Kritisch:</strong> Empathie und emotionale Intelligenz sind wichtiger als technisches Fachwissen!</li>
               </ul>
             </div>
             <div id="prac-Service Request" className="bg-linear-to-br from-teal-900/20 to-slate-900 border border-teal-800/40 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-teal-400 mb-3 text-xl flex items-center"><CheckCircle className="w-6 h-6 mr-2" /> Service Request Management</h3>
-              <div className="bg-teal-950/50 rounded-xl p-4 mb-4 border-l-4 border-teal-500 text-teal-100">Цель: эффективная обработка предопределённых запросов <Term>Serviceanfragen</Term>.</div>
+              <div className="bg-teal-950/50 rounded-xl p-4 mb-4 border-l-4 border-teal-500 text-teal-100">Zweck: Effiziente Bearbeitung vordefinierter <Term>Service Requests</Term>.</div>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>• Инцидент = поломка. Запрос = нормальная часть услуги (мышка, доступ).</li>
-                <li>• Обработка должна быть стандартизирована и автоматизирована.</li>
+                <li>• Incident = Ausfall. Service Request = normaler Teil der Bereitstellung (neue Hardware, Zugang).</li>
+                <li>• Die Bearbeitung sollte so weit wie möglich standardisiert und automatisiert werden.</li>
               </ul>
             </div>
             <div id="prac-SLA" className="bg-linear-to-br from-purple-900/20 to-slate-900 border border-purple-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
               <h3 className="font-black text-purple-400 mb-3 text-xl flex items-center"><Target className="w-6 h-6 mr-2" /> Service Level Management</h3>
-              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Установка бизнес-ориентированных целей (SLA) и оценка их выполнения.</div>
-              <p className="text-slate-300 text-sm mb-4">SLA должны отражать <Term>Geschäftsergebnisse</Term>. Проводит <Term>Review Meetings</Term>.</p>
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300"><strong className="text-purple-300">🍉 Эффект Арбуза:</strong> Метрики зелёные, а клиент недоволен. SLM решает это реальным фидбеком.</div>
+              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Festlegung und Bewertung von Servicezielen (SLA), die auf Business Outcomes basieren.</div>
+              <p className="text-slate-300 text-sm mb-4">SLAs müssen die <Term>Geschäftsergebnisse</Term> widerspiegeln. Durchführung regelmäßiger <Term>Review Meetings</Term>.</p>
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300"><strong className="text-purple-300">🍉 Wassermelonen-Effekt:</strong> Metriken sind grün, aber der Kunde ist unzufrieden. SLM löst dies durch reales Feedback.</div>
             </div>
             
             <div id="prac-ContImp" className="bg-linear-to-br from-purple-900/20 to-slate-900 border border-purple-800/40 rounded-3xl p-6 xl:col-span-2 scroll-mt-40">
               <h3 className="font-black text-purple-400 mb-3 text-xl flex items-center"><Play className="w-6 h-6 mr-2" /> Continual Improvement</h3>
-              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Согласование практик и услуг с меняющимися бизнес-потребностями.</div>
-              <p className="text-slate-300 text-sm mb-4">Важно: Улучшения — ответственность <strong>КАЖДОГО</strong> сотрудника (от CEO до инженера).</p>
-              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300 mb-6"><strong className="text-purple-300">Реестр CIR:</strong> База <Term>Continual Improvement Register</Term> для всех предложений.</div>
+              <div className="bg-purple-950/50 rounded-xl p-4 mb-4 border-l-4 border-purple-500 text-purple-100 text-sm">Anpassung der Praktiken und Services an sich ändernde Business-Bedürfnisse.</div>
+              <p className="text-slate-300 text-sm mb-4">Wichtig: Kontinuierliche Verbesserung liegt in der Verantwortung <strong>JEDES EINZELNEN</strong> Mitarbeiters.</p>
+              <div className="bg-slate-900/80 p-3 rounded-xl border border-purple-800/30 text-xs text-slate-300 mb-6"><strong className="text-purple-300">CIR-Register:</strong> Datenbank (<Term>Continual Improvement Register</Term>) für alle Verbesserungsideen.</div>
               <div className="bg-indigo-900/20 p-4 rounded-xl border border-indigo-500/20 mb-6 text-xs text-indigo-100">
-                <strong className="block mb-2 text-indigo-400">7 шагов модели (упрощенно):</strong>
-                1. Видение? ➡️ 2. Где мы сейчас? ➡️ 3. Где хотим быть? ➡️ 4. Как туда попасть? ➡️ 5. Действие ➡️ 6. Мы там? ➡️ 7. Как сохранить заряд?
+                <strong className="block mb-2 text-indigo-400">7 Schritte des Modells:</strong>
+                1. Vision? ➡️ 2. Wo stehen wir? ➡️ 3. Wo wollen wir hin? ➡️ 4. Wie dahin? ➡️ 5. Aktion ➡️ 6. Ziel erreicht? ➡️ 7. Schwung halten?
               </div>
-              <div className="mt-4"><CIModelDiagram lang="ru" /></div>
+              <div className="mt-4"><CIModelDiagram lang="de" /></div>
             </div>
 
             <div id="prac-Security" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
@@ -736,47 +736,47 @@ export const contentRU = {
 
             <div id="prac-RelMgmt" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Users className="w-5 h-5 mr-2 text-indigo-400" /> Relationship Management</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Установление и развитие связи со стейкхолдерами на всех уровнях.</div>
-              <p className="text-slate-400 text-sm">Обеспечивает понимание потребностей стейкхолдеров, максимизирует создание <Term>совместной ценности</Term>.</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Zweck: Aufbau und Pflege von Beziehungen zu Stakeholdern auf allen Ebenen.</div>
+              <p className="text-slate-400 text-sm">Sorgt für das Verständnis der Stakeholder-Bedürfnisse und maximiert die <Term>gemeinsame Wertschöpfung</Term>.</p>
             </div>
 
             <div id="prac-Supplier" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Award className="w-5 h-5 mr-2 text-indigo-400" /> Supplier Management</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Управление внешними поставщиками.</div>
-              <p className="text-slate-400 text-sm">Гарантирует, что поставщики выполняют обязательства (через Underpinning Contracts - UC) для поддержания качества сервисов компании.</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Zweck: Management externer Lieferanten.</div>
+              <p className="text-slate-400 text-sm">Garantiert, dass Lieferanten ihre Verpflichtungen (UC) erfüllen, um die Servicequalität zu gewährleisten.</p>
             </div>
 
             <div id="prac-ITAsset" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Layers className="w-5 h-5 mr-2 text-indigo-400" /> IT Asset Management</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Управление жизненным циклом ИТ-активов.</div>
-              <p className="text-slate-400 text-sm"><Term>IT Asset</Term> = любой ценный компонент (железо, софт, лицензии). Главное — <strong>финансовая ценность</strong> и контроль затрат/рисков.</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Zweck: Lebenszyklus-Management aller IT-Assets.</div>
+              <p className="text-slate-400 text-sm"><Term>IT Asset</Term> = jede wertvolle Komponente (Hardware, Software, Lizenzen). Fokus: <strong>finanzieller Wert</strong> und Kostenkontrolle.</p>
             </div>
 
             <div id="prac-Config" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
-              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Settings className="w-5 h-5 mr-2 text-indigo-400" /> Service Config. Mgmt (SCM)</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Точная информация о конфигурационных элементах (CI) и связях.</div>
-              <p className="text-slate-400 text-sm mb-2"><Term>Configuration Item (CI)</Term> — компонент, которым нужно управлять. В отличие от Asset, тут важна <strong>структура и технические связи</strong>, кто от кого зависит.</p>
+              <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Settings className="w-5 h-5 mr-2 text-indigo-400" /> Service Configuration Mgmt</h3>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Zweck: Genaue Informationen über Configuration Items (CI) und deren Beziehungen.</div>
+              <p className="text-slate-400 text-sm mb-2"><Term>Configuration Item (CI)</Term> — jede Komponente, die gemanagt werden muss. Fokus: <strong>Struktur und technische Abhängigkeiten</strong>.</p>
               <div className="bg-slate-900/80 p-2 rounded-lg border border-indigo-500/20 text-[10px] text-indigo-200 italic">
-                <strong>CMDB:</strong> Централизованная база данных всех CI и их взаимоотношений.
+                <strong>CMDB:</strong> Zentrale Datenbank aller CIs und Beziehungen.
               </div>
             </div>
 
             <div id="prac-Event" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Activity className="w-5 h-5 mr-2 text-indigo-400" /> Monitoring & Event Mgmt</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Цель: Системное наблюдение и управление событиями в инфраструктуре.</div>
-              <p className="text-slate-400 text-sm">Типы событий: <Term>Информационные</Term> (логин успешен), <Term>Предупреждающие</Term> (диск заполнен на 80%), <Term>Уникальные/Exception</Term> (сервер упал = Incident).</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-indigo-500 text-slate-300 text-sm">Zweck: Systemmatische Beobachtung und Management von Events.</div>
+              <p className="text-slate-400 text-sm">Event-Typen: <Term>Information</Term>, <Term>Warnung</Term>, <Term>Ausnahme/Exception</Term> (z.B. Incident).</p>
             </div>
 
             <div id="prac-Release" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 xl:col-span-1 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Play className="w-5 h-5 mr-2 text-blue-400" /> Release Management</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Цель: Предоставление новых и измененных услуг к использованию.</div>
-              <p className="text-slate-400 text-sm">💡 <strong>Бизнес-решение!</strong> Это момент, когда функция фактически становится доступна пользователям.</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Zweck: Zurverfügungstellung neuer/geänderter Services.</div>
+              <p className="text-slate-400 text-sm">💡 <strong>Business-Entscheidung!</strong> Moment, in dem Funktionen für Nutzer freigegeben werden.</p>
             </div>
 
             <div id="prac-Deploy" className="bg-slate-800/80 border border-slate-700 rounded-3xl p-6 xl:col-span-1 scroll-mt-40">
               <h3 className="font-black text-slate-200 mb-3 text-lg flex items-center"><Settings className="w-5 h-5 mr-2 text-blue-400" /> Deployment Management</h3>
-              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Цель: Инсталляция железа, софта, документации в Live.</div>
-              <p className="text-slate-400 text-sm">💡 <strong>Технический шаг!</strong> Код копируется на сервер, но может быть скрыт от пользователей (feature toggles), пока не произойдет Release.</p>
+              <div className="bg-slate-900/50 rounded-xl p-3 mb-3 border-l-4 border-blue-500 text-slate-300 text-sm">Zweck: Installation von HW/SW in der Live-Umgebung.</div>
+              <p className="text-slate-400 text-sm">💡 <strong>Technischer Schritt!</strong> Überführung in die Betriebsumgebung (z.B. via CI/CD).</p>
             </div>
           </div>
         </div>

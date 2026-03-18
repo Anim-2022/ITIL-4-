@@ -74,15 +74,15 @@ export const contentDE = {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Award className="w-6 h-6" /> <span className="font-bold text-lg">Sponsor</span></div>
-              <p className="text-slate-300 text-sm">Genehmigt das Budget für den IT-Service. Zahlt für die Dienstleistung.</p>
+              <p className="text-slate-300 text-sm">Genehmigt das Budget für den Service-Konsum. (Zahlt für die Dienstleistung).</p>
             </div>
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Users className="w-6 h-6" /> <span className="font-bold text-lg">Kunde (Customer)</span></div>
-              <p className="text-slate-300 text-sm">Definiert die Anforderungen an den Service und übernimmt die Verantwortung für die Ergebnisse des Servicekonsums.</p>
+              <p className="text-slate-300 text-sm">Definiert die Anforderungen an einen Service und übernimmt die Verantwortung für die Ergebnisse des Service-Konsums.</p>
             </div>
             <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
               <div className="flex items-center gap-3 mb-3 text-indigo-300"><Headset className="w-6 h-6" /> <span className="font-bold text-lg">Anwender (User)</span></div>
-              <p className="text-slate-300 text-sm">Nutzt den Service im täglichen Betrieb. (Interagiert z.B. mit dem Service Desk).</p>
+              <p className="text-slate-300 text-sm">Nutzt Services im täglichen Betrieb. (Interagiert z.B. mit dem Service Desk).</p>
             </div>
           </div>
 
@@ -135,9 +135,9 @@ export const contentDE = {
               <div className="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 hover:border-indigo-500/30 transition-colors">
                 <div className="text-fuchsia-400 font-black text-xs uppercase tracking-widest mb-2">Greifbares Resultat</div>
                 <h4 className="text-2xl font-black text-slate-100 mb-4"><Term>Ausgabe / Output</Term></h4>
-                <p className="text-slate-400 text-sm mb-4 italic">Ein greifbares oder immaterielles Artefakt, das durch eine Aktivität erzeugt wird.</p>
+                <p className="text-slate-400 text-sm mb-4 italic">Ein greifbares oder immaterielles Artefakt einer Aktivität.</p>
                 <div className="bg-slate-800/50 p-3 rounded-lg border border-slate-700 text-slate-300 text-sm">
-                  <strong>Beispiel:</strong> Installierter E-Mail-Server oder abgeschlossenes Training.
+                  <strong>Beispiel:</strong> Ein Ticket-Bericht, ein installierter Server oder ein abgeschlossenes Training.
                 </div>
               </div>
 
